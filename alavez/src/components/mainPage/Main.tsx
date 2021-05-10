@@ -1,12 +1,16 @@
 import React from "react";
 import * as S from "./style";
+import { Header } from "../index";
+import { iphone } from "../../assets/index";
 
 const Main = () => {
   return (
     <>
-      <S.MainContainer>
+      <S.MainWrapper>
+        <Header />
         <S.Main></S.Main>
-      </S.MainContainer>
+        <img src={iphone} alt="" />
+      </S.MainWrapper>
     </>
   );
 };
