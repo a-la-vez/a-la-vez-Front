@@ -18,7 +18,7 @@ const Header = () => {
             <Link to="#">즐겨찾기</Link>
           </li>
           <li>
-            <Link to="#">마이페이지</Link>
+            <Link to="/my-page">마이페이지</Link>
           </li>
           <li>
             <Link to="/login">로그인</Link>
