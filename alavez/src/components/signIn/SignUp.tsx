@@ -1,20 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Header } from "../header/style";
+import { Header } from "../index";
 import * as S from "./style";
 
 const SignUp = () => {
+  const [fileUrl, setFileUrl] = useState("");
+
+  //이미지 파일 선택시 미리보기
+  function processImage(
+    event: React.ChangeEventHandler<HTMLInputElement> | any
+  ) {
+    const imageFile = event.target.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+    setFileUrl(imageUrl);
+  }
+
+  // input 상태 정리
   const [inputs, setInputs] = useState({
     name: "",
-    nickName: "",
+    nick: "",
     email: "",
+    confirm: "",
     password: "",
-    rePassword: "",
+    re_password: "",
+    file: "",
   });
 
-  const { email, password } = inputs;
+  const { name, nick, email, confirm, password, re_password, file } = inputs;
 
-  const onChange = (e: any) => {
+  const onChange = (e: React.InputHTMLAttributes<HTMLInputElement> | any) => {
     const { value, name } = e.target;
 
     setInputs({
@@ -23,15 +37,17 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: any | React.FormEventHandler<HTMLFormElement>) => {
     e.preventDefault();
 
     setInputs({
       name: "",
-      nickName: "",
+      nick: "",
       email: "",
+      confirm: "",
       password: "",
-      rePassword: "",
+      re_password: "",
+      file: "",
     });
 
     console.log(inputs);
@@ -44,23 +60,67 @@ const SignUp = () => {
         <S.LoginWrapper onSubmit={handleSubmit}>
           <S.Title>
             <span>SIGN IN</span>
-            <Link to="/sign-up">로그인</Link>
+            <Link to="/sign-up">로그인 &gt; </Link>
           </S.Title>
-          <div className="input-wrapper">
-            <input
-              onChange={onChange}
-              placeholder="이메일을 입력해주세요"
-              type="text"
-              name="email"
-              value={email}
-            />
-            <input
-              onChange={onChange}
-              placeholder="비밀번호를 입력해주세요"
-              type="password"
-              name="password"
-              value={password}
-            />
+          <div className="sign-wrapper">
+            {/* 프로필 사진  */}
+            <label>
+              <img src={fileUrl} alt="프로필 사진" className="profile-img" />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={processImage}
+                className="profile-item"
+                name="file"
+                value={file}
+              ></input>
+            </label>
+
+            {/* 회원가입 입력창 */}
+            <div className="input-wrapper">
+              <input
+                onChange={onChange}
+                placeholder="이름을 입력해주세요"
+                type="text"
+                name="name"
+                value={name}
+              />
+              <input
+                onChange={onChange}
+                placeholder="닉네임을 입력해주세요"
+                type="text"
+                name="nick"
+                value={nick}
+              />
+              <input
+                onChange={onChange}
+                placeholder="이메일을 입력해주세요"
+                type="text"
+                name="email"
+                value={email}
+              />
+              <input
+                onChange={onChange}
+                placeholder="인증번호를 입력해주세요"
+                type="text"
+                name="confirm"
+                value={confirm}
+              />
+              <input
+                onChange={onChange}
+                placeholder="비밀번호를 입력해주세요"
+                type="password"
+                name="password"
+                value={password}
+              />
+              <input
+                onChange={onChange}
+                placeholder="비밀번호를 다시 입력해주세요"
+                type="password"
+                name="re_password"
+                value={re_password}
+              />
+            </div>
           </div>
 
           <button type="submit">가입하기</button>

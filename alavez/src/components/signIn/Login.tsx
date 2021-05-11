@@ -23,7 +23,7 @@ const LogIn = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    setInputs({ 
+    setInputs({
       email: "",
       password: "",
     });
@@ -34,13 +34,15 @@ const LogIn = () => {
   return (
     <S.MainWrapper>
       <Header></Header>
+
       <S.Main>
         <S.LoginWrapper onSubmit={handleSubmit}>
           <S.Title>
             <span>LOGIN</span>
-            <Link to="/sign-up">회원가입</Link>
+            <Link to="/sign-up">회원가입 &gt;</Link>
           </S.Title>
-          <div className="input-wrapper">
+          <div className="login input-wrapper">
+            <span>ID</span>
             <input
               onChange={onChange}
               placeholder="이메일을 입력해주세요"
@@ -48,6 +50,7 @@ const LogIn = () => {
               name="email"
               value={email}
             />
+            <span>PASSWORD</span>
             <input
               onChange={onChange}
               placeholder="비밀번호를 입력해주세요"
@@ -57,7 +60,9 @@ const LogIn = () => {
             />
           </div>
 
-          <button type="submit">가입하기</button>
+          <button type="submit" className="login-button">
+            로그인
+          </button>
         </S.LoginWrapper>
       </S.Main>
     </S.MainWrapper>
