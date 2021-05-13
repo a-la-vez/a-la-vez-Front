@@ -1,22 +1,48 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import { Header } from "../index";
-import { heart, heartCheck } from "../../assets";
+import GroupList from "./GroupList";
+
+interface dummyList {
+  title: String;
+  describe: String;
+}
+
+const dummy: dummyList[] = [
+  {
+    title: "대마고",
+    describe: "열심히 화이팅 !!",
+  },
+  {
+    title: "대마고",
+    describe: "열심히 화이팅 !!",
+  },
+  {
+    title: "대마고",
+    describe: "열심히 화이팅 !!",
+  },
+  {
+    title: "대마고",
+    describe: "열심히 화이팅 !!",
+  },
+  {
+    title: "대마고",
+    describe: "열심히 화이팅 !!",
+  },
+  {
+    title: "대마고",
+    describe: "열심히 화이팅 !!",
+  },
+];
 
 const MyPage = () => {
   const [fileUrl, setFileUrl] = useState("");
-  const [heartClick, setHeartClick] = useState("");
 
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
     const imageFile = e.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
     setFileUrl(imageUrl);
   }
-
-  const heartClickhandler = () => {
-    console.log("클릭");
-    setHeartClick("heartCheck");
-  };
 
   return (
     <>
@@ -26,7 +52,7 @@ const MyPage = () => {
           <S.ProfileWrapper>
             <S.ProfileImg>
               <label>
-                <img src={fileUrl} alt="#" />
+                <img src={fileUrl} alt="프로필 사진" />
                 <input
                   type="file"
                   onChange={processImage}
@@ -44,48 +70,14 @@ const MyPage = () => {
                   <h3>나의 그룹</h3>
                   <span> | 즐겨 찾기</span>
                 </div>
+
                 <div className="group-list">
                   <ul>
-                    <div className="group">
-                      <img src="#" alt="#" />
-                      <div className="group-title">
-                        <span>title</span>
-                        <span>대덕마이스터고등학교</span>
-                      </div>
-                      <img src={heart} alt="하트" onClick={heartClickhandler} />
-                    </div>
-                    <div className="group">
-                      <img src="#" alt="#" />
-                      <div className="group-title">
-                        <span>title</span>
-                        <span>대덕마이스터고등학교</span>
-                      </div>
-                      <img src={heart} alt="하트" />
-                    </div>
-                    <div className="group">
-                      <img src="#" alt="#" />
-                      <div className="group-title">
-                        <span>title</span>
-                        <span>대덕마이스터고등학교</span>
-                      </div>
-                      <img src={heart} alt="하트" />
-                    </div>
-                    <div className="group">
-                      <img src="#" alt="#" />
-                      <div className="group-title">
-                        <span>title</span>
-                        <span>대덕마이스터고등학교</span>
-                      </div>
-                      <img src={heart} alt="하트" />
-                    </div>
-                    <div className="group">
-                      <img src="#" alt="#" />
-                      <div className="group-title">
-                        <span>title</span>
-                        <span>대덕마이스터고등학교</span>
-                      </div>
-                      <img src={heart} alt="하트" />
-                    </div>
+                    {dummy.map((e: dummyList, index: number): any => (
+                      <>
+                        <GroupList key={index} e={e} />
+                      </>
+                    ))}
                   </ul>
                 </div>
               </div>
