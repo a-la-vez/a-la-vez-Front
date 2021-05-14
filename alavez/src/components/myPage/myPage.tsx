@@ -63,6 +63,7 @@ const MyPage = () => {
                 <div className="profile-text">강은빈</div>
                 <div className="profile-text">열심히 하겠습니다!!</div>
               </div>
+              <S.ProfileChange></S.ProfileChange>
             </S.ProfileImg>
             <S.ProfileItem>
               <div className="profile-item">
