@@ -4,25 +4,23 @@ import styled from "styled-components";
 export const Header = styled.div`
   width: 100%;
   position: fixed;
+  border-bottom: 1px solid #80808061;
+  background: white;
   top: 0;
 
   .container {
-    margin: 0 auto;
-    width: 65%;
-    height: 50px;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+
 
     .menu-list {
       display: flex;
       width: 50%;
-      font-size: 13px;
+      font-size: 14px;
       flex-direction: row;
       justify-content: space-around;
       margin: 0 auto;
       list-style: none;
+
+      text-align: center;
 
       //호버시 밑줄
       li {
