@@ -108,3 +108,13 @@ export const ProfileItem = styled.div`
     }
   }
 `;
+
+export const ProfileChange = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  & button {
+    outline: none;
+    margin: 10px;
+  }
+`;
