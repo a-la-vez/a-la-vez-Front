@@ -54,12 +54,12 @@ export const LoginWrapper = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 
     input {
       padding-left: 10px;
       margin-bottom: 15px;
-      width: 100%;
+      width: 95%;
       height: 30px;
       outline: none;
       border-radius: 5px;
