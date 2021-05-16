@@ -1,14 +1,14 @@
-import Axios from "axios";
+import axios from "axios";
 
-const MAINURL = "";
+const MAINURL = "http://localhost:3000/";
 
-export function request(
+export default function request(
   method: String | any,
   url: String | any,
   header: String | any,
   data: String | any
 ) {
-  return Axios({
+  return axios({
     method,
     url: MAINURL + url,
     headers: header,
