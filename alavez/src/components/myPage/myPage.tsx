@@ -49,7 +49,9 @@ const MyPage = () => {
       <S.MainWrapper>
         <Header />
         <S.Main className="container">
+          {/* 프로필 싸개 */}
           <S.ProfileWrapper>
+            {/* 프로필 사진 / 수정  */}
             <S.ProfileImg>
               <label>
                 <img src={fileUrl} alt="프로필 사진" />
@@ -59,34 +61,36 @@ const MyPage = () => {
                   placeholder="프로필 수정하기"
                 />
               </label>
-              <div className="profile-intro">
-                <div className="profile-text">강은빈</div>
-                <div className="profile-text">열심히 하겠습니다!!</div>
-              </div>
               <S.ProfileChange>
                 <button>비밀번호 수정하기</button>
                 <button>프로필 수정하기</button>
               </S.ProfileChange>
             </S.ProfileImg>
-            <S.ProfileItem>
-              <div className="profile-item">
-                <div className="title">
-                  <h3>나의 그룹</h3>
-                  <span> | 즐겨 찾기</span>
-                </div>
-
-                <div className="group-list">
-                  <ul>
-                    {dummy.map((e: dummyList, index: number): any => (
-                      <>
-                        <GroupList key={index} e={e} />
-                      </>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </S.ProfileItem>
+            {/* 프로필 소개 */}
+            <S.ProfileIntro>
+              <div className="profile-text">강은빈</div>
+              <div className="profile-text">열심히 하겠습니다!!</div>
+            </S.ProfileIntro>
           </S.ProfileWrapper>
+          {/* 속해있는 그룹 */}
+          <S.ProfileItem>
+            <div className="profile-item">
+              <div className="title">
+                <h3>나의 그룹</h3>
+                <span> | 즐겨 찾기</span>
+              </div>
+
+              <div className="group-list">
+                <ul>
+                  {dummy.map((e: dummyList, index: number): any => (
+                    <>
+                      <GroupList key={index} e={e} />
+                    </>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </S.ProfileItem>
         </S.Main>
       </S.MainWrapper>
     </>
