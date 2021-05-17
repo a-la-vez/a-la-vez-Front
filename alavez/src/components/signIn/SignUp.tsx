@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../api/api/auth/auth";
+import { inputsState } from "../../interfaces/interfaces";
 import { Header } from "../index";
 import * as S from "./style";
 
@@ -16,7 +18,7 @@ const SignUp = () => {
   }
 
   // input 상태 정리
-  const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState<inputsState>({
     name: "",
     nick: "",
     email: "",
@@ -50,6 +52,7 @@ const SignUp = () => {
       file: "",
     });
 
+    auth(inputs);
     console.log(inputs);
   };
 

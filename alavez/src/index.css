@@ -29,6 +29,15 @@ code {
   align-items: center;
 }
 
+.profile-container {
+  margin: 0 auto;
+  width: 50%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 ::-webkit-scrollbar {
   width: 2px;
   /* 스크롤바의 width */
