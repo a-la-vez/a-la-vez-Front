@@ -36,7 +36,8 @@ const dummy: dummyList[] = [
 ];
 
 const MyPage = () => {
-  const [fileUrl, setFileUrl] = useState("");
+  const [fileUrl, setFileUrl] = useState<string>("");
+  const [font, setFont] = useState("");
 
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
     const imageFile = e.target.files[0];
@@ -44,11 +45,15 @@ const MyPage = () => {
     setFileUrl(imageUrl);
   }
 
+  const listClickHandler = () => {
+    setFont("bold");
+  };
+
   return (
     <>
       <S.MainWrapper>
         <Header />
-        <S.Main className="container">
+        <S.Main className="profile-container">
           {/* 프로필 싸개 */}
           <S.ProfileWrapper>
             {/* 프로필 사진 / 수정  */}
@@ -75,10 +80,14 @@ const MyPage = () => {
           {/* 속해있는 그룹 */}
           <S.ProfileItem>
             <div className="profile-item">
-              <div className="title">
-                <h3>나의 그룹</h3>
-                <span> | 즐겨 찾기</span>
-              </div>
+              <S.SubMeun>
+                <ul>
+                  <li color={font} onClick={listClickHandler}>
+                    My Group
+                  </li>
+                  <li onClick={listClickHandler}>Heart</li>
+                </ul>
+              </S.SubMeun>
 
               <div className="group-list">
                 <ul>

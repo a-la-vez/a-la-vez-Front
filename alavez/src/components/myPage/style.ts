@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { SubMeunStyle } from "styled-components";
 
 export const MainWrapper = styled.div`
   margin-top: 50px;
@@ -9,27 +9,26 @@ export const MainWrapper = styled.div`
 export const Main = styled.div`
   height: 960px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 export const ProfileWrapper = styled.div`
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
 `;
 
 export const ProfileImg = styled.div`
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   img {
-    min-height: 150px;
-    min-width: 150px;
+    margin-top: 130px;
+    min-height: 200px;
+    min-width: 200px;
     width: 150px;
     height: 150px;
     border: 1px solid #80808073;
@@ -40,15 +39,12 @@ export const ProfileImg = styled.div`
   input {
     display: none;
   }
-
-   
-  }
 `;
 
 export const ProfileIntro = styled.div`
   padding-left: 30px;
-  margin-top: 80px;
-  width: 30%;
+  margin-top: 10px;
+  width: 80%;
   display: flex;
   flex-direction: column;
 
@@ -56,7 +52,7 @@ export const ProfileIntro = styled.div`
     margin: 10px;
     padding-bottom: 3px;
     border-bottom: 2px solid #6f2dff;
-    width: 100%auto;
+    width: 100%;
   }
 `;
 
@@ -65,9 +61,7 @@ export const ProfileItem = styled.div`
 
   .profile-item {
     width: 100%;
-    margin-top: 70px;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
 
@@ -80,23 +74,25 @@ export const ProfileItem = styled.div`
   ul {
     width: 100%;
     max-height: 500px;
-    overflow: auto;
+    /* overflow: auto; */
   }
 
   .group-list {
-    width: 70%;
+    padding-left: 50px;
+    width: 100%;
   }
 
   .group {
     margin-top: 20px;
-    width: 98%;
+    width: 100%;
     height: 80px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid gray;
+    border: 1px solid #80808047;
     border-radius: 5px;
+    box-shadow: 2px 1px 4px #8080802e;
 
     .group-title {
       display: flex;
@@ -115,12 +111,15 @@ export const ProfileItem = styled.div`
 `;
 
 export const ProfileChange = styled.div`
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
+  width: 70%;
 
   & button {
-    outline: none;
     margin: 10px;
+    outline: none;
     background-color: #6f2dff;
     color: white;
     box-shadow: 2px 2px 2px #80808063;
@@ -129,3 +128,27 @@ export const ProfileChange = styled.div`
     border: none;
   }
 `;
+
+export const SubMeun = styled.div`
+  & ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+  }
+
+  & li {
+    margin: 5px;
+    font-weight: normal;
+  }
+`;
+
+export const listBold: SubMeunStyle = {
+  bold: {
+    fontWeight: "bold",
+  },
+  normal: {
+    fontWeight: "normal",
+  },
+  response: {},
+};
