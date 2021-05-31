@@ -17,14 +17,14 @@ const GroupList = (e: any) => {
   };
 
   return (
-    <div className="group" key={e.index}>
+    <S.Group className="group" key={e.index}>
       <img src="" alt="#" />
-      <div className="group-title">
+      <S.GroupTitle className="group-title">
         <span>{e.e.title}</span>
         <span>{e.e.describe}</span>
-      </div>
+      </S.GroupTitle>
       <img src={heartClick} alt="하트" onClick={heartClickhandler} />
-    </div>
+    </S.Group>
   );
 };
 
