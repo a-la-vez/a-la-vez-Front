@@ -51,6 +51,7 @@ export const LoginWrapper = styled.form`
   }
 
   .input-wrapper {
+    width: 53%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,6 +65,10 @@ export const LoginWrapper = styled.form`
       outline: none;
       border-radius: 5px;
       border: 1px solid #8080807a;
+    }
+
+    & span {
+      margin-bottom: 5px;
     }
   }
 

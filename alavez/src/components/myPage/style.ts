@@ -1,4 +1,4 @@
-import styled, { SubMeunStyle } from "styled-components";
+import styled from "styled-components";
 
 export const MainWrapper = styled.div`
   margin-top: 50px;
@@ -82,32 +82,32 @@ export const ProfileItem = styled.div`
     width: 100%;
   }
 
-  .group {
-    margin-top: 20px;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #80808047;
-    border-radius: 5px;
-    box-shadow: 2px 1px 4px #8080802e;
-
-    .group-title {
-      display: flex;
-      flex-direction: column;
-      margin-right: auto;
-    }
-
-    img {
-      margin-right: 20px;
-      margin-left: 20px;
-      width: 30px;
-      height: 30px;
-      color: white;
-    }
+  img {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    color: white;
   }
+`;
+
+export const Group = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #80808047;
+  border-radius: 5px;
+  box-shadow: 2px 1px 4px #8080802e;
+`;
+
+export const GroupTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
 `;
 
 export const ProfileChange = styled.div`
@@ -129,6 +129,10 @@ export const ProfileChange = styled.div`
   }
 `;
 
+export interface a {
+  font: string;
+}
+
 export const SubMeun = styled.div`
   & ul {
     list-style: none;
@@ -136,19 +140,9 @@ export const SubMeun = styled.div`
     flex-direction: row;
     padding-left: 50px;
   }
-
-  & li {
-    margin: 5px;
-    font-weight: normal;
-  }
 `;
 
-export const listBold: SubMeunStyle = {
-  bold: {
-    fontWeight: "bold",
-  },
-  normal: {
-    fontWeight: "normal",
-  },
-  response: {},
-};
+export const Li = styled.li`
+  margin: 5px;
+  font-weight: ${(e: a) => e.font};
+`;
