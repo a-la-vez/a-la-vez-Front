@@ -37,7 +37,8 @@ const dummy: dummyList[] = [
 
 const MyPage = () => {
   const [fileUrl, setFileUrl] = useState<string>("");
-  const [font, setFont] = useState("");
+  const [fontSize, setFontSize] = useState("");
+  const [count, setCount] = useState<boolean>(false);
 
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
     const imageFile = e.target.files[0];
@@ -46,7 +47,12 @@ const MyPage = () => {
   }
 
   const listClickHandler = () => {
-    setFont("bold");
+    if (count) {
+      setFontSize("bold");
+    } else {
+      setFontSize("normal");
+    }
+    setCount(!count);
   };
 
   return (
@@ -82,10 +88,12 @@ const MyPage = () => {
             <div className="profile-item">
               <S.SubMeun>
                 <ul>
-                  <li color={font} onClick={listClickHandler}>
+                  <S.Li font={fontSize} onClick={listClickHandler}>
                     My Group
-                  </li>
-                  <li onClick={listClickHandler}>Heart</li>
+                  </S.Li>
+                  <S.Li font={fontSize} onClick={listClickHandler}>
+                    Heart
+                  </S.Li>
                 </ul>
               </S.SubMeun>
 
