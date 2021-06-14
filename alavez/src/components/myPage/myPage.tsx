@@ -37,7 +37,7 @@ const dummy: dummyList[] = [
 
 const MyPage = () => {
   const [fileUrl, setFileUrl] = useState<string>("");
-  const [fontSize, setFontSize] = useState("");
+  const [fontSize, setFontSize] = useState<string>("");
   const [count, setCount] = useState<boolean>(false);
 
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
