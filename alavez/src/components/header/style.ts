@@ -4,16 +4,14 @@ import styled from "styled-components";
 export const Header = styled.div`
   width: 100%;
   position: fixed;
-  border-bottom: 1px solid #80808061;
   background: white;
   top: 0;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
 
   .container {
-
-
     .menu-list {
       display: flex;
-      width: 50%;
+      width: 800px;
       font-size: 14px;
       flex-direction: row;
       justify-content: space-around;

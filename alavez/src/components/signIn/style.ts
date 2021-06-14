@@ -45,7 +45,7 @@ export const LoginWrapper = styled.form`
       object-fit: cover;
       width: 100px;
       height: 100px;
-      border: 1px solid #8080807a;
+      border: 1px dotted #8080807a;
       border-radius: 100%;
     }
   }
