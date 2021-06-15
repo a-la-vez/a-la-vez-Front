@@ -17,17 +17,14 @@ export const Header = styled.div`
       justify-content: space-around;
       margin: 0 auto;
       list-style: none;
-
       text-align: center;
 
       //호버시 밑줄
       li {
         width: 100%;
-      }
-      li:hover {
-        color: #6f2dff;
         transition: all 0.3s ease;
       }
+
       li > a {
         position: relative;
         text-decoration: none;
