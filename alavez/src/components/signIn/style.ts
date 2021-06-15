@@ -2,15 +2,25 @@ import styled from "styled-components";
 
 export const MainWrapper = styled.div`
   width: 100%;
-  height: 920px;
+  height: 100vh;
   display: flex;
   align-items: center;
+`;
+
+export const ModalWrapper = styled(MainWrapper)`
+  background-color: #00000087;
+  z-index: 3;
 `;
 
 export const Main = styled.div`
   width: 400px;
   height: 400px;
   margin: 0 auto;
+`;
+
+export const ConfirmModal = styled(Main)`
+  width: 300px;
+  background-color: white;
 `;
 
 export const MainCover = styled.div`
@@ -40,8 +50,9 @@ export const LoginWrapper = styled.form`
     }
 
     .profile-img {
-      min-width: 100px;
-      min-height: 100px;
+      cursor: pointer;
+      min-width: 150px;
+      min-height: 150px;
       object-fit: cover;
       width: 100px;
       height: 100px;
@@ -82,8 +93,9 @@ export const LoginWrapper = styled.form`
   }
 
   button {
-    width: 90%;
-    height: 30px;
+    cursor: pointer;
+    width: 100%;
+    height: 33px;
     outline: none;
     border-radius: 10px;
     margin-top: 30px;
