@@ -10,6 +10,7 @@ export const Main = styled.div`
   height: 960px;
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
 `;
 
 export const ProfileWrapper = styled.div`
@@ -26,7 +27,7 @@ export const ProfileImg = styled.div`
   justify-content: center;
 
   img {
-    margin-top: 130px;
+    cursor: pointer;
     min-height: 200px;
     min-width: 200px;
     width: 150px;
@@ -56,6 +57,10 @@ export const ProfileIntro = styled.div`
   }
 `;
 
+export interface a {
+  font: string;
+}
+
 export const ProfileItem = styled.div`
   width: 100%;
 
@@ -74,15 +79,20 @@ export const ProfileItem = styled.div`
   ul {
     width: 100%;
     max-height: 500px;
-    /* overflow: auto; */
+
+    & li {
+      margin: 5px;
+      cursor: pointer;
+      padding: 3px;
+    }
   }
 
   .group-list {
-    padding-left: 50px;
     width: 100%;
   }
 
   img {
+    cursor: pointer;
     margin-right: 20px;
     margin-left: 20px;
     width: 30px;
@@ -129,20 +139,10 @@ export const ProfileChange = styled.div`
   }
 `;
 
-export interface a {
-  font: string;
-}
-
 export const SubMeun = styled.div`
   & ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding-left: 50px;
   }
-`;
-
-export const Li = styled.li`
-  margin: 5px;
-  font-weight: ${(e: a) => e.font};
 `;

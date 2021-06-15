@@ -6,7 +6,7 @@ const GroupList = (e: any) => {
   const [heartClick, setHeartClick] = useState(heart);
   const [count, setCount] = useState<boolean>(false);
 
-  // 하트 채우기 
+  // 하트 채우기
   const heartClickhandler = () => {
     if (count) {
       setHeartClick(heart);
@@ -17,7 +17,7 @@ const GroupList = (e: any) => {
   };
 
   return (
-    <S.Group className="group" key={e.index}>
+    <S.Group key={e.index}>
       <img src="" alt="#" />
       <S.GroupTitle className="group-title">
         <span>{e.e.title}</span>

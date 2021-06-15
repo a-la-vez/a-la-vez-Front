@@ -35,10 +35,22 @@ const dummy: dummyList[] = [
   },
 ];
 
+const buttonList = [
+  {
+    id: 1,
+    name: "My Group",
+  },
+  {
+    id: 2,
+    name: "Favorites",
+  },
+];
+
 const MyPage = () => {
   const [fileUrl, setFileUrl] = useState<string>("");
   const [fontSize, setFontSize] = useState<string>("");
   const [count, setCount] = useState<boolean>(false);
+  const [selected, setSelected] = useState<number>(1);
 
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
     const imageFile = e.target.files[0];
@@ -53,6 +65,11 @@ const MyPage = () => {
       setFontSize("normal");
     }
     setCount(!count);
+  };
+
+  const buttonClickHandler = (list: any) => {
+    console.log("클릭");
+    setSelected(list.id);
   };
 
   return (
@@ -88,15 +105,19 @@ const MyPage = () => {
             <div className="profile-item">
               <S.SubMeun>
                 <ul>
-                  <S.Li font={fontSize} onClick={listClickHandler}>
-                    My Group
-                  </S.Li>
-                  <S.Li font={fontSize} onClick={listClickHandler}>
-                    Heart
-                  </S.Li>
+                  {buttonList.map((list) => (
+                    <li
+                      style={{
+                        borderBottom: list.id === selected ? "2px solid #6f2dff" : "none",
+                      }}
+                      onClick={() => buttonClickHandler(list)}
+                      key={list.id}
+                    >
+                      {list.name}
+                    </li>
+                  ))}
                 </ul>
               </S.SubMeun>
-
               <div className="group-list">
                 <ul>
                   {dummy.map((e: dummyList, index: number): any => (
