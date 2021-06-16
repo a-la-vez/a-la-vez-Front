@@ -80,25 +80,26 @@ const MyPage = () => {
           {/* 프로필 싸개 */}
           <S.ProfileWrapper>
             {/* 프로필 사진 / 수정  */}
-            <S.ProfileImg>
-              <label>
-                <img src={fileUrl} alt="프로필 사진" />
-                <input
-                  type="file"
-                  onChange={processImage}
-                  placeholder="프로필 수정하기"
-                />
-              </label>
-              <S.ProfileChange>
-                <button>비밀번호 수정하기</button>
-                <button>프로필 수정하기</button>
-              </S.ProfileChange>
-            </S.ProfileImg>
-            {/* 프로필 소개 */}
+            <label>
+              <img src={fileUrl} alt="프로필 사진" />
+              <input
+                type="file"
+                onChange={processImage}
+                placeholder="프로필 수정하기"
+              />
+            </label>
             <S.ProfileIntro>
-              <div className="profile-text">강은빈</div>
-              <div className="profile-text">열심히 하겠습니다!!</div>
+              <div className="profile-name">강은빈</div>
+              <div className="profile-text">
+                안녕하세요. 저는 현재 대덕소프트웨어 마이스터고등학교에 재학중
+                입니다.
+              </div>
             </S.ProfileIntro>
+            <S.ProfileChange>
+              <button>비밀번호 수정하기</button>
+              <button>프로필 수정하기</button>
+            </S.ProfileChange>
+            {/* 프로필 소개 */}
           </S.ProfileWrapper>
           {/* 속해있는 그룹 */}
           <S.ProfileItem>

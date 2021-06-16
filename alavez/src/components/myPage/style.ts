@@ -18,13 +18,7 @@ export const ProfileWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-`;
-
-export const ProfileImg = styled.div`
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   img {
     cursor: pointer;
@@ -43,37 +37,37 @@ export const ProfileImg = styled.div`
 `;
 
 export const ProfileIntro = styled.div`
-  padding-left: 30px;
   margin-top: 10px;
-  width: 80%;
+  width: 93%;
   display: flex;
   flex-direction: column;
+  padding: 5px;
+
+  .profile-name {
+    font-size: 24px;
+    line-height: 1.25;
+    margin-top: 10px;
+  }
 
   .profile-text {
-    margin: 10px;
-    padding-bottom: 3px;
+    margin-top: 10px;
+    padding-bottom: 7px;
     border-bottom: 2px solid #6f2dff;
     width: 100%;
+    color: #464444bd;
   }
 `;
 
-export interface a {
-  font: string;
-}
-
 export const ProfileItem = styled.div`
-  width: 100%;
-
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-
   // 나의 그룹 리스트
   ul {
     width: 100%;
-    padding-left: 50px;
+    padding-left: 20px;
     max-height: 500px;
 
     & li {
@@ -103,7 +97,6 @@ export const Group = styled.div`
   justify-content: space-between;
   border: 1px solid #80808047;
   border-radius: 5px;
-  box-shadow: 2px 1px 4px #8080802e;
 `;
 
 export const GroupTitle = styled.div`
@@ -113,11 +106,11 @@ export const GroupTitle = styled.div`
 `;
 
 export const ProfileChange = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
 
   & button {
     margin: 10px;
