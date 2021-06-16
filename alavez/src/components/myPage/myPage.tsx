@@ -102,32 +102,29 @@ const MyPage = () => {
           </S.ProfileWrapper>
           {/* 속해있는 그룹 */}
           <S.ProfileItem>
-            <div className="profile-item">
-              <S.SubMeun>
-                <ul>
-                  {buttonList.map((list) => (
-                    <li
-                      style={{
-                        borderBottom: list.id === selected ? "2px solid #6f2dff" : "none",
-                      }}
-                      onClick={() => buttonClickHandler(list)}
-                      key={list.id}
-                    >
-                      {list.name}
-                    </li>
-                  ))}
-                </ul>
-              </S.SubMeun>
-              <div className="group-list">
-                <ul>
-                  {dummy.map((e: dummyList, index: number): any => (
-                    <>
-                      <GroupList key={index} e={e} />
-                    </>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <S.SubMeun>
+              <ul>
+                {buttonList.map((list) => (
+                  <li
+                    style={{
+                      borderBottom:
+                        list.id === selected ? "2px solid #6f2dff" : "none",
+                    }}
+                    onClick={() => buttonClickHandler(list)}
+                    key={list.id}
+                  >
+                    {list.name}
+                  </li>
+                ))}
+              </ul>
+            </S.SubMeun>
+            <ul>
+              {dummy.map((e: dummyList, index: number): any => (
+                <>
+                  <GroupList key={index} e={e} />
+                </>
+              ))}
+            </ul>
           </S.ProfileItem>
         </S.Main>
       </S.MainWrapper>

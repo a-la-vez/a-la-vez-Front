@@ -64,20 +64,16 @@ export interface a {
 export const ProfileItem = styled.div`
   width: 100%;
 
-  .profile-item {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-    .title {
-      display: flex;
-      flex-direction: row;
-    }
-  }
 
+  // 나의 그룹 리스트
   ul {
     width: 100%;
+    padding-left: 50px;
     max-height: 500px;
 
     & li {
@@ -85,10 +81,6 @@ export const ProfileItem = styled.div`
       cursor: pointer;
       padding: 3px;
     }
-  }
-
-  .group-list {
-    width: 100%;
   }
 
   img {
