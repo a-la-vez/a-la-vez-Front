@@ -1,31 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style";
 
+/* interface linkListProps {
+  id: number;
+  to: string;
+  name: string;
+} */
+
+const linkList = [
+  {
+    id: 1,
+    to: "/",
+    name: "그룹찾기",
+  },
+  {
+    id: 2,
+    to: "/",
+    name: "그룹찾기",
+  },
+  {
+    id: 3,
+    to: "/my-page",
+    name: "마이페이지",
+  },
+  {
+    id: 4,
+    to: "/login",
+    name: "로그인",
+  },
+];
+
 const Header = () => {
+  const [select, setSelect] = useState<number>(0);
+
+  const haderClick = (list: any) => {
+    setSelect(list.id);
+  };
+
   return (
-    <S.Header>
-      <div className="container">
-        <img src="#" alt="logo" />
-        <ul className="menu-list">
-          <li>
-            <Link to="#">그룹 찾기</Link>
-          </li>
-          <li>
-            <Link to="#">가입된 그룹</Link>
-          </li>
-          <li>
-            <Link to="#">즐겨찾기</Link>
-          </li>
-          <li>
-            <Link to="/my-page">마이페이지</Link>
-          </li>
-          <li>
-            <Link to="/login">로그인</Link>
-          </li>
-        </ul>
-      </div>
-    </S.Header>
+    <>
+      <S.HeaderWrapper>
+        <div className="container">
+          <img src="#" alt="logo" />
+          <ul className="menu-list">
+            {linkList.map((list, index) => (
+              <li key={index}>
+                <Link
+                  to={list.to}
+                  style={{
+                    borderBottom:
+                      list.id === select ? "2px solid #6f2dff" : "none",
+                  }}
+                  onClick={() => haderClick(list)}
+                >
+                  {list.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </S.HeaderWrapper>
+    </>
   );
 };
 

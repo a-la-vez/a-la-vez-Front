@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
+interface HeaderProps {
+  select: boolean;
+}
 //헤더
-export const Header = styled.div`
+export const HeaderWrapper = styled.div`
   width: 100%;
   position: fixed;
   background: white;
