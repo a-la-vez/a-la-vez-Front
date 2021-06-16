@@ -66,7 +66,7 @@ const SignUp = () => {
         <S.LoginWrapper onSubmit={handleSubmit}>
           <S.Title>
             <span>SIGN IN</span>
-            <Link to="/sign-up">로그인 &gt; </Link>
+            <Link to="/login">로그인 &gt; </Link>
           </S.Title>
           <div className="sign-wrapper">
             {/* 프로필 사진  */}

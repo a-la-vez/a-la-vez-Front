@@ -114,6 +114,7 @@ export const Title = styled.div`
   img {
     cursor: pointer;
     width: 20px;
+    position: relative;
     right: -131px;
     top: -41px;
   }
