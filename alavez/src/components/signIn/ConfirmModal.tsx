@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { auth } from "../../api/api/auth/auth";
-import { inputComfirm, inputsState } from "../../interfaces/interfaces";
-import { Header } from "../index";
+import { useRef } from "react";
+import { cancel } from "../../assets";
+import { inputComfirm, modal } from "../../interfaces/login";
 import * as S from "./style";
 
-const ConfirmModal = () => {
-  // input 상태 정리
+const ConfirmModal = ({ modal, setModal }: modal) => {
+  const [btnColor, setBtnColor] = useState<boolean>(false);
+  const test = useRef<any>();
+
   const [inputs, setInputs] = useState<inputComfirm>({
     confirm: "",
   });
@@ -15,6 +16,12 @@ const ConfirmModal = () => {
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement> | any) => {
     const { value, name } = e.target;
+
+    if (value !== "") {
+      setBtnColor(true);
+    } else {
+      setBtnColor(false);
+    }
 
     setInputs({
       ...inputs,
@@ -32,26 +39,36 @@ const ConfirmModal = () => {
     console.log(inputs);
   };
 
+  const closeModal = () => {
+    setModal(!modal);
+  };
+
   return (
-    <S.ModalWrapper>
-      <S.ConfirmModal className="">
-        <S.LoginWrapper onSubmit={handleSubmit}>
-          <S.Title>
-            <span>SIGN IN</span>
-            <Link to="/sign-up">로그인 &gt; </Link>
-          </S.Title>
-          <div className="sign-wrapper">
-            <input
-              onChange={onChange}
-              placeholder="인증번호를 입력해주세요"
-              type="text"
-              name="confirm"
-              value={confirm}
-            />
-          </div>
-          <button type="submit">가입하기</button>
-        </S.LoginWrapper>
-      </S.ConfirmModal>
+    <S.ModalWrapper modal={modal}>
+      <S.ConfirmWrapper onSubmit={handleSubmit} ref={test}>
+        <S.Title>
+          <span>인증번호 확인</span>
+          <img src={cancel} alt="닫기 버튼" onClick={closeModal}></img>
+        </S.Title>
+        <S.ConfirmText>이메일 인증번호를 입력해주세요.</S.ConfirmText>
+        <div className="sign-wrapper">
+          <input
+            className="confirm-input"
+            onChange={onChange}
+            placeholder="인증번호를 입력해주세요"
+            type="text"
+            name="confirm"
+            value={confirm}
+          />
+        </div>
+        <button
+          type="submit"
+          className="confirm-button"
+          style={{ backgroundColor: btnColor ? "#6f2dff" : "pink" }}
+        >
+          가입하기
+        </button>
+      </S.ConfirmWrapper>
     </S.ModalWrapper>
   );
 };
