@@ -6,7 +6,6 @@ import * as S from "./style";
 
 const ConfirmModal = ({ modal, setModal }: modal) => {
   const [btnColor, setBtnColor] = useState<boolean>(false);
-  const test = useRef<any>();
 
   const [inputs, setInputs] = useState<inputComfirm>({
     confirm: "",
@@ -45,7 +44,7 @@ const ConfirmModal = ({ modal, setModal }: modal) => {
 
   return (
     <S.ModalWrapper modal={modal}>
-      <S.ConfirmWrapper onSubmit={handleSubmit} ref={test}>
+      <S.ConfirmWrapper onSubmit={handleSubmit}>
         <S.Title>
           <span>인증번호 확인</span>
           <img src={cancel} alt="닫기 버튼" onClick={closeModal}></img>
@@ -65,6 +64,7 @@ const ConfirmModal = ({ modal, setModal }: modal) => {
           type="submit"
           className="confirm-button"
           style={{ backgroundColor: btnColor ? "#6f2dff" : "pink" }}
+          onClick={closeModal}
         >
           가입하기
         </button>
