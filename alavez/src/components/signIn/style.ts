@@ -7,20 +7,10 @@ export const MainWrapper = styled.div`
   align-items: center;
 `;
 
-export const ModalWrapper = styled(MainWrapper)`
-  background-color: #00000087;
-  z-index: 3;
-`;
-
 export const Main = styled.div`
   width: 400px;
   height: 400px;
   margin: 0 auto;
-`;
-
-export const ConfirmModal = styled(Main)`
-  width: 300px;
-  background-color: white;
 `;
 
 export const MainCover = styled.div`
@@ -120,4 +110,56 @@ export const Title = styled.div`
     color: #6f2dff;
     margin: 6px;
   }
+
+  img {
+    cursor: pointer;
+    width: 20px;
+    right: -131px;
+    top: -41px;
+  }
+`;
+
+// 인증번호 모달
+
+export const ConfirmWrapper = styled(LoginWrapper)`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 3000;
+
+  .sign-wrapper {
+    margin-top: 0;
+  }
+
+  .confirm-input {
+    border-radius: 5px;
+    outline: none;
+    height: 25px;
+    width: 72%;
+    border: 1px solid #80808078;
+    padding: 5px;
+  }
+  .confirm-button {
+    width: 80%;
+  }
+`;
+
+interface ModalWrapperProps {
+  modal: boolean;
+}
+
+export const ModalWrapper = styled(MainWrapper)`
+  position: absolute;
+  z-index: 3;
+  background-color: #00000087;
+  display: ${(e: ModalWrapperProps) => (e.modal ? "flex" : "none")};
+`;
+
+export const ConfirmText = styled.span`
+  color: #808080db;
 `;
