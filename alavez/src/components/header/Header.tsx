@@ -11,12 +11,7 @@ import * as S from "./style";
 const linkList = [
   {
     id: 1,
-    to: "/",
-    name: "그룹찾기",
-  },
-  {
-    id: 2,
-    to: "/",
+    to: "/group-search",
     name: "그룹찾기",
   },
   {
