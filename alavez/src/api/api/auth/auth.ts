@@ -1,4 +1,4 @@
-import { inputsState } from "../../../interfaces/interfaces";
+import { inputsState } from "../../../interfaces/login";
 import { request } from "../../axios/axios";
 
 export function auth(data: inputsState) {
