@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../api/api/auth/auth";
 import { inputsState } from "../../interfaces/login";
-import { Header } from "../index";
 import * as S from "./style";
 import { ConfirmModal } from "../index";
 
@@ -61,7 +60,6 @@ const SignUp = () => {
   return (
     <S.MainWrapper>
       <ConfirmModal modal={modal} setModal={setModal} />
-      <Header></Header>
       <S.Main>
         <S.LoginWrapper onSubmit={handleSubmit}>
           <S.Title>

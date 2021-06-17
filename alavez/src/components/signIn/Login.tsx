@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style";
-import { Header } from "../index";
 
 const LogIn = () => {
   const [inputs, setInputs] = useState({
@@ -33,8 +32,6 @@ const LogIn = () => {
 
   return (
     <S.MainWrapper>
-      <Header></Header>
-
       <S.Main>
         <S.LoginWrapper onSubmit={handleSubmit}>
           <S.Title>
