@@ -21,7 +21,10 @@ const GroupList = (e: any) => {
       <img src="" alt="#" />
       <S.GroupTitle className="group-title">
         <span>{e.e.title}</span>
-        <span>{e.e.describe}</span>
+        <div className="list-sub">
+          <span>{e.e.describe}</span>
+          <span>{e.e.period}</span>
+        </div>
       </S.GroupTitle>
       <img src={heartClick} alt="하트" onClick={heartClickhandler} />
     </S.Group>
