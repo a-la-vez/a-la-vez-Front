@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
-  margin-top: 50px;
   width: 100%;
   height: 100vh;
 `;
@@ -20,12 +19,12 @@ export const ProfileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  img {
+  .profile-img {
     cursor: pointer;
-    min-height: 200px;
-    min-width: 200px;
-    width: 150px;
-    height: 150px;
+    min-height: 230px;
+    min-width: 230px;
+    width: 240px;
+    height: 240px;
     border: 1px solid #80808073;
     border-radius: 100%;
     object-fit: cover;
@@ -55,6 +54,17 @@ export const ProfileIntro = styled.div`
     border-bottom: 2px solid #6f2dff;
     width: 100%;
     color: #464444bd;
+  }
+
+  .profile-sub {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 20px;
+      margin-right: 10px;
+    }
   }
 `;
 
@@ -97,12 +107,30 @@ export const Group = styled.div`
   justify-content: space-between;
   border: 1px solid #80808047;
   border-radius: 5px;
+
+  :hover {
+    box-shadow: 0 1px 8px #6f2dff;
+    width: 104%;
+    transition: all 0.5s;
+  }
 `;
 
 export const GroupTitle = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: auto;
+  width: 100%;
+
+  .list-sub {
+    color: #464444bd;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  span:nth-child(1) {
+    cursor: pointer;
+  }
 `;
 
 export const ProfileChange = styled.div`
