@@ -7,14 +7,22 @@ export const MainWrapper = styled.div`
   margin: 0 auto;
 
   .input-infomation {
-    width: 36%;
-    height: 26px;
+    height: 28px;
     position: relative;
     top: -55px;
-    color: grey;
-    padding: 4px;
     border-radius: 5px;
-    box-shadow: 0 1px 3px #8080809e;
+    box-shadow: 0 5px 7px #77737326;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+
+    & p {
+      padding: 4px;
+      font-size: 14px;
+      color: black;
+    }
   }
 `;
 
@@ -29,7 +37,8 @@ export const Search = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  width: 36%;
+  transition: all 0.5s;
+  width: 30%;
   height: 86%;
   display: flex;
   flex-direction: row;
@@ -47,13 +56,13 @@ export const InputWrapper = styled.div`
 
   .glass-item {
     height: 100%;
-    width: 12%;
+    width: 16%;
     display: flex;
     justify-content: center;
     background-color: #6f2dff;
 
     & img {
-      width: 25px;
+      width: 22px;
       cursor: pointer;
     }
   }
@@ -110,6 +119,7 @@ export const GroupItem = styled.div`
 
   .group-img {
     width: 100%;
+    height: 100%;
     overflow: hidden;
     border-radius: 4px;
   }
@@ -142,5 +152,6 @@ export const GroupDescribe = styled.div`
     margin-top: 10px;
     color: #808080fa;
     font-size: 15px;
+    text-align: end;
   }
 `;
