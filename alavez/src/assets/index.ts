@@ -6,3 +6,4 @@ export { default as location } from "./location.svg";
 export { default as company } from "./company.svg";
 export { default as glass } from "./glass.svg";
 export { default as groupImg } from "./groupImg.jpg";
+export { default as groupImg2 } from "./groupImg2.jpg";
