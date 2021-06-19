@@ -109,9 +109,8 @@ export const Group = styled.div`
   border-radius: 5px;
 
   :hover {
-    box-shadow: 0 1px 8px #6f2dff;
-    width: 104%;
-    transition: all 0.5s;
+    background-color: #d6d2d21a;
+    transition: all 0.3s;
   }
 `;
 
@@ -126,6 +125,7 @@ export const GroupTitle = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    font-size: 14px;
   }
 
   span:nth-child(1) {
