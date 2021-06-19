@@ -144,7 +144,9 @@ export const GroupDescribe = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  & p {
+  & a {
+    text-decoration: none;
+    color : black;
     font-weight: 500;
   }
 
