@@ -7,6 +7,7 @@ import {
   MyPage,
   SignUp,
   GroupSearch,
+  GroupDetail,
 } from "../components/index";
 
 const Router = () => {
@@ -20,6 +21,7 @@ const Router = () => {
           <Route path="/sign-up" component={SignUp} exact />
           <Route path="/my-page" component={MyPage} exact />
           <Route path="/group-search" component={GroupSearch} exact />
+          <Route path="/group-detail/:id" component={GroupDetail} exact />
         </Switch>
       </BrowserRouter>
     </>
