@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { LinkListType } from "../../interfaces/interfaces";
 import * as S from "./style";
 
-/* interface linkListProps {
-  id: number;
-  to: string;
-  name: string;
-} */
-
-const linkList = [
+const linkList: LinkListType[] = [
   {
     id: 1,
     to: "/group-search",
     name: "그룹찾기",
+  },
+  {
+    id: 2,
+    to: "/post-make",
+    name: "그룹 생성",
   },
   {
     id: 3,
