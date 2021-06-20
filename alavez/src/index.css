@@ -22,7 +22,7 @@ code {
 
 .container {
   margin: 0 auto;
-  width: 50%;
+  width: 55%;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -31,7 +31,7 @@ code {
 
 .profile-container {
   margin: 75px auto;
-  width: 50%;
+  width: 55%;
   height: 50px;
   display: flex;
   flex-direction: row;

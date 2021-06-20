@@ -7,3 +7,4 @@ export { default as MyPage } from "./myPage/myPage";
 export { default as GroupSearch } from "./groupSearch/groupSearch/GroupSearch";
 export { default as GroupList } from "./myPage/GroupList";
 export { default as GroupDetail } from "./groupSearch/groupDetail/GroupDetail";
+export { default as PostMake } from "./postMake/PostMake";
