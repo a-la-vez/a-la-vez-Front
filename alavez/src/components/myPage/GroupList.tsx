@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
-import { heart, heartCheck } from "../../assets";
+import { groupImg2, heart, heartCheck } from "../../assets";
 
 const GroupList = (e: any) => {
   const [heartClick, setHeartClick] = useState(heart);
@@ -18,7 +18,7 @@ const GroupList = (e: any) => {
 
   return (
     <S.Group key={e.index}>
-      <img src="" alt="#" />
+      <img src={groupImg2} alt="#" />
       <S.GroupTitle className="group-title">
         <span>{e.e.title}</span>
         <div className="list-sub">

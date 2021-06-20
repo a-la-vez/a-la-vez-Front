@@ -108,6 +108,12 @@ export const Group = styled.div`
   border: 1px solid #80808047;
   border-radius: 5px;
 
+  & img:nth-child(1) {
+    border-radius: 50px;
+    width: 45px;
+    height: 45px;
+  }
+
   :hover {
     background-color: #d6d2d21a;
     transition: all 0.3s;
