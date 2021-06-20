@@ -6,14 +6,25 @@ export interface ButtonType {
 export interface ListDummyType {
   Title: string;
   describe: string;
-  period: string;
+  Period: string;
 }
 
-export interface groupDetail extends ListDummyType {
+export interface GroupDetailType extends ListDummyType {
+  Id: number;
   ImagePath: string;
   Content: string;
   CreatedAt: string;
   UpdatedAt: string;
-  Period: string;
   Category: string;
+}
+
+export interface CommentType {
+  ImagePath: string;
+  Content: string;
+  CreatedAt: string;
+  UserName: string;
+}
+
+export interface CommentPropsState extends CommentType {
+  comment: [];
 }
