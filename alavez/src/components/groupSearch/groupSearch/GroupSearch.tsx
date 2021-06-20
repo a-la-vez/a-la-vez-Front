@@ -47,37 +47,37 @@ const listDummy: ListDummyType[] = [
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
   {
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
-    period: "2020202",
+    Period: "2020202",
   },
 ];
 
@@ -146,7 +146,7 @@ const GroupSearch = () => {
             <S.GroupDescribe>
               <a href="/group-detail/1">{list.Title}</a>
               <span>{list.describe}</span>
-              <span>{list.period}</span>
+              <span>{list.Period}</span>
             </S.GroupDescribe>
           </S.GroupItem>
         ))}
