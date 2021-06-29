@@ -88,15 +88,6 @@ export const Category = styled.div`
   flex-direction: row;
   margin-bottom: 20px;
   flex-wrap: wrap;
-
-  & button {
-    cursor: pointer;
-    padding: 5px;
-    margin: 0 10px 10px 0;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-  }
 `;
 
 export const GroupWrapper = styled.div`

@@ -1,96 +1,27 @@
-import React from "react";
 import * as S from "./style";
 import { useState } from "react";
-import { glass, groupImg, groupImg2 } from "../../../assets";
-import { ButtonType, ListDummyType } from "../../../interfaces/group";
-
-const button: ButtonType[] = [
-  {
-    id: 1,
-    name: "전체",
-  },
-  {
-    id: 2,
-    name: "영어",
-  },
-  {
-    id: 3,
-    name: "프로젝트",
-  },
-  {
-    id: 4,
-    name: "전공",
-  },
-  {
-    id: 5,
-    name: "헬스",
-  },
-  {
-    id: 6,
-    name: "프론트",
-  },
-  {
-    id: 7,
-    name: "백엔드",
-  },
-  {
-    id: 8,
-    name: "안드로이드",
-  },
-  {
-    id: 9,
-    name: "IOS",
-  },
-];
-
-const listDummy: ListDummyType[] = [
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-];
+import { glass, groupImg2 } from "../../../assets";
+import { button, listDummy } from "../../../interfaces/group";
+import { useRef } from "react";
 
 const GroupSearch = () => {
   const [selected, setSelected] = useState<number>(1);
   const [input, setInput] = useState<boolean>(false);
+  const test = useRef<HTMLInputElement>(null);
+
+  const inputClick = () => {
+    if (test.current?.focus) {
+      test.current.focus();
+      console.log(test);
+      setInput(!input);
+    }
+  };
 
   const categoryClickHandler = (button: any) => {
     setSelected(button.id);
   };
 
   const inputClickHandler = () => {
-    console.log("클릭");
     setInput(!input);
   };
 
@@ -99,15 +30,15 @@ const GroupSearch = () => {
       <S.Search>
         <S.InputWrapper style={{ width: input ? "43%" : "" }}>
           <input
+            ref={test}
             type="text"
             placeholder="검색을 해주세요"
-            onClick={inputClickHandler}
+            onClick={inputClick}
           />
           <div className="glass-item">
             <img src={glass} alt="검색 아이콘" />
           </div>
         </S.InputWrapper>
-
         <S.Post>
           <button>그룹 만들기</button>
         </S.Post>
@@ -123,6 +54,7 @@ const GroupSearch = () => {
       <S.Category>
         {button.map((button, index) => (
           <button
+            className="default-button"
             key={index}
             style={{
               backgroundColor:
