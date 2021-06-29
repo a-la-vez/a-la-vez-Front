@@ -60,8 +60,8 @@ export const TopContent = styled.div`
   .side-detail-top {
     width: 100%;
     height: 110px;
-    border-top: 1px solid #80808069;
-    border-bottom: 1px solid #80808069;
+    border-top: 1px solid #80808054;
+    border-bottom: 1px solid #80808054;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -79,7 +79,7 @@ export const TopContent = styled.div`
   }
 
   .side-detail-mid {
-    border-bottom: 1px solid #80808069;
+    border-bottom: 1px solid #80808054;
     height: 285px;
     display: flex;
     flex-direction: column;
@@ -124,7 +124,7 @@ export const TopContent = styled.div`
 
 export const BottomContent = styled.div`
   width: 100%;
-  border-top: 1px solid #80808069;
+  border-top: 1px solid #80808054;
 `;
 
 export const CommentWrapper = styled.div`
@@ -151,7 +151,7 @@ export const CommentHeader = styled.div`
   align-items: center;
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid #80808069;
+  border-bottom: 1px solid #80808054;
 
   & span {
     margin: 0 5px;
@@ -179,7 +179,7 @@ export const Comment = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid #80808069;
+  border-bottom: 1px solid #80808054;
 
   .user-info {
     display: flex;

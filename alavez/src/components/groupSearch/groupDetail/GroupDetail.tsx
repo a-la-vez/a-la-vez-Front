@@ -41,6 +41,24 @@ const commentDummy: CommentType[] = [
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
+  {
+    ImagePath: groupImg2,
+    Content: "어떤 방법으로 모집되나요",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    ImagePath: groupImg2,
+    Content: "어떤 방법으로 모집되나요",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    ImagePath: groupImg2,
+    Content: "어떤 방법으로 모집되나요",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
 ];
 
 const GroupDetail = () => {
@@ -94,7 +112,7 @@ const GroupDetail = () => {
           <S.CommentWrapper>
             <S.CommentHeader>
               <span>댓글</span>
-              <span>2개</span>
+              <span>{commentDummy.length}개</span>
             </S.CommentHeader>
             <S.CommentInput>
               <input type="text" placeholder="댓글을 작성해주세요" />
