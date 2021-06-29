@@ -51,3 +51,13 @@ code {
   border-radius: 3px;
   /* 스크롤바 색 */
 }
+
+/* 카테고리 버튼 */
+.default-button {
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
