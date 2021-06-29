@@ -11,7 +11,7 @@ const linkList: LinkListType[] = [
   },
   {
     id: 2,
-    to: "/post-make",
+    to: "/post",
     name: "그룹 생성",
   },
   {
