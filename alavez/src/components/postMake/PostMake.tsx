@@ -15,14 +15,7 @@ const PostMake = () => {
     daedline: "",
   });
 
-  const { title, content, daedline } = inputs;
-
-  useEffect(() => {
-    
-  });
-  if (inputs !== null) {
-    setPost(!post);
-  }
+  const { title, content, daedline, number } = inputs;
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -31,17 +24,45 @@ const PostMake = () => {
       ...inputs,
       [name]: value,
     });
+
+    if (
+      title.length > 5 &&
+      content.length > 5 &&
+      daedline !== "" &&
+      number !== ""
+    ) {
+      setPost(!post);
+      console.log(213);
+    }
   };
+
+  useEffect(() => {
+    if (
+      title.length > 5 &&
+      content.length > 5 &&
+      daedline !== "" &&
+      number !== ""
+    ) {
+      setPost(true);
+      console.log(213);
+    }else{
+      setPost(false);
+    }
+  }, [title, content, daedline, number]);
 
   const handleSumit = (e: any) => {
     e.preventDefault();
 
-    setInputs({
-      title: "",
-      content: "",
-      number: "",
-      daedline: "",
-    });
+    if (title === "" || content === "" || daedline === "" || number === "") {
+      alert("모든 항목을 입력해주세요");
+    } else {
+      setInputs({
+        title: "",
+        content: "",
+        number: "",
+        daedline: "",
+      });
+    }
 
     console.log(inputs);
   };
