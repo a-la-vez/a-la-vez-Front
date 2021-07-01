@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MainWrapper = styled.div`
-  margin-top: 30px;
   width: 55%;
   height: 100%;
   margin: 0 auto;
@@ -27,7 +26,7 @@ export const MainWrapper = styled.div`
 `;
 
 export const Search = styled.div`
-  margin: 60px auto;
+  margin: 70px 0 20px 0;
   width: 100%;
   height: 50px;
   display: flex;
@@ -137,7 +136,7 @@ export const GroupDescribe = styled.div`
 
   & a {
     text-decoration: none;
-    color : black;
+    color: black;
     font-weight: 500;
   }
 

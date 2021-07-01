@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./style";
+import * as S from "./style/style";
 
 const comment = (comments: any, index: number) => {
   return (
