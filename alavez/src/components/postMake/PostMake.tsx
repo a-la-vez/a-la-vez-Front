@@ -36,20 +36,6 @@ const PostMake = () => {
     }
   };
 
-  useEffect(() => {
-    if (
-      title.length > 5 &&
-      content.length > 5 &&
-      daedline !== "" &&
-      number !== ""
-    ) {
-      setPost(true);
-      console.log(213);
-    }else{
-      setPost(false);
-    }
-  }, [title, content, daedline, number]);
-
   const handleSumit = (e: any) => {
     e.preventDefault();
 
@@ -77,12 +63,27 @@ const PostMake = () => {
     setFileUrl(imageUrl);
   }
 
+  useEffect(() => {
+    if (
+      title.length > 5 &&
+      content.length > 5 &&
+      daedline !== "" &&
+      number !== ""
+    ) {
+      setPost(true);
+
+      console.log(213);
+    } else {
+      setPost(false);
+    }
+  }, [title, content, daedline, number]);
+
   return (
     <S.PostWrapper onSubmit={handleSumit}>
       <S.PostHeader>
         <S.Category>
           {button.map((button, index) => (
-            <button
+            <div
               className="default-button"
               key={index}
               style={{
@@ -95,7 +96,7 @@ const PostMake = () => {
               onClick={() => categoryClickHandler(button)}
             >
               {button.name}
-            </button>
+            </div>
           ))}
         </S.Category>
       </S.PostHeader>
