@@ -30,7 +30,7 @@ code {
 }
 
 .profile-container {
-  margin: 75px auto;
+  margin: 100px auto;
   width: 55%;
   height: 50px;
   display: flex;
@@ -57,7 +57,7 @@ code {
   cursor: pointer;
   padding: 5px;
   margin: 0 10px;
-  outline: none;
+  font-size: 14px;
   border: none;
   border-radius: 5px;
 }

@@ -8,3 +8,4 @@ export { default as GroupSearch } from "./groupSearch/groupSearch/GroupSearch";
 export { default as GroupList } from "./myPage/GroupList";
 export { default as GroupDetail } from "./groupSearch/groupDetail/GroupDetail";
 export { default as PostMake } from "./postMake/PostMake";
+export { default as ApplyForm } from "./groupSearch/groupDetail/ApplyForm";

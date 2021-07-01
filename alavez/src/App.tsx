@@ -4,7 +4,7 @@ import Router from "./router/Router";
 function App() {
   return (
     <>
-      s<Router></Router>
+      <Router></Router>
     </>
   );
 }
