@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { groupImg2, heart, heartCheck } from "../../../assets";
+import { ApplyForm } from "../../index";
 import { GroupDetailType, CommentType } from "../../../interfaces/group";
 import Comment from "./Comment";
-import * as S from "./style";
+import * as S from "./style/style";
 
 const groupDetail: GroupDetailType = {
   Id: 1,
@@ -64,6 +65,7 @@ const commentDummy: CommentType[] = [
 const GroupDetail = () => {
   const [heartClick, setHeartClick] = useState(heart);
   const [count, setCount] = useState<boolean>(false);
+  const [apply, setApply] = useState<boolean>(false);
 
   // 하트 채우기
   const heartClickhandler = () => {
@@ -74,57 +76,65 @@ const GroupDetail = () => {
     }
     setCount(!count);
   };
+
+  const applyButtonClickHandler = () => {
+    setApply(!apply);
+  };
+
   return (
-    <S.MainWrapper>
-      <S.GroupDetailContent>
-        <S.GroupDetailHeader>
-          <div className="category">
-            <div className="category-item">{groupDetail.Category}</div>
-          </div>
-          <div className="date">
-            <span>작성일 : {groupDetail.CreatedAt}</span>
-            <span>수정일 : {groupDetail.UpdatedAt}</span>
-          </div>
-        </S.GroupDetailHeader>
-        <S.TopContent>
-          <div className="group-img">
-            <img src={groupDetail.ImagePath} alt="그룹이미지" />
-          </div>
-          <div className="side-detail">
-            <div className="side-detail-top">
-              <p>{groupDetail.Title}</p>
-              <p>모집기간 : {groupDetail.Period}</p>
+    <>
+      <ApplyForm apply={apply} setApply={setApply} />
+      <S.MainWrapper>
+        <S.GroupDetailContent>
+          <S.GroupDetailHeader>
+            <div className="category">
+              <div className="category-item">{groupDetail.Category}</div>
             </div>
-            <div className="side-detail-mid">
-              <p>{groupDetail.Content}</p>
-              <div className="button-item">
-                <img
-                  src={heartClick}
-                  alt="즐겨찾기 아이콘"
-                  onClick={heartClickhandler}
-                />
-                <button>신청하기</button>
+            <div className="date">
+              <span>작성일 : {groupDetail.CreatedAt}</span>
+              <span>수정일 : {groupDetail.UpdatedAt}</span>
+            </div>
+          </S.GroupDetailHeader>
+          <S.TopContent>
+            <div className="group-img">
+              <img src={groupDetail.ImagePath} alt="그룹이미지" />
+            </div>
+            <div className="side-detail">
+              <div className="side-detail-top">
+                <p>{groupDetail.Title}</p>
+                <p>모집기간 : {groupDetail.Period}</p>
+              </div>
+              <div className="side-detail-mid">
+                <p>{groupDetail.Content}</p>
+                <div className="button-item">
+                  <img
+                    src={heartClick}
+                    alt="즐겨찾기 아이콘"
+                    onClick={heartClickhandler}
+                  />
+                  <button onClick={applyButtonClickHandler}>신청하기</button>
+                </div>
               </div>
             </div>
-          </div>
-        </S.TopContent>
-        <S.BottomContent>
-          <S.CommentWrapper>
-            <S.CommentHeader>
-              <span>댓글</span>
-              <span>{commentDummy.length}개</span>
-            </S.CommentHeader>
-            <S.CommentInput>
-              <input type="text" placeholder="댓글을 작성해주세요" />
-            </S.CommentInput>
-            {commentDummy.map((comment: CommentType, index: number): any => (
-              <Comment key={index} comments={comment} />
-            ))}
-            <button className="comment-more">더보기</button>
-          </S.CommentWrapper>
-        </S.BottomContent>
-      </S.GroupDetailContent>
-    </S.MainWrapper>
+          </S.TopContent>
+          <S.BottomContent>
+            <S.CommentWrapper>
+              <S.CommentHeader>
+                <span>댓글</span>
+                <span>{commentDummy.length}개</span>
+              </S.CommentHeader>
+              <S.CommentInput>
+                <input type="text" placeholder="댓글을 작성해주세요" />
+              </S.CommentInput>
+              {commentDummy.map((comment: CommentType, index: number): any => (
+                <Comment key={index} comments={comment} />
+              ))}
+              <button className="comment-more">더보기</button>
+            </S.CommentWrapper>
+          </S.BottomContent>
+        </S.GroupDetailContent>
+      </S.MainWrapper>
+    </>
   );
 };
 
