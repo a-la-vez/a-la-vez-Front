@@ -7,6 +7,22 @@ export const ApplyListWrapper = styled.div`
   overflow: auto;
 `;
 
+export const ApplySubMenu = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+
+  & ul {
+    display: flex;
+    flex-direction: row;
+
+    & li {
+      margin-right: 30px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+  }
+`;
+
 export const ApplyHeader = styled.div`
   width: 100%;
   height: 50px;
