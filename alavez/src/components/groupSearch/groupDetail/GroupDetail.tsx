@@ -15,6 +15,7 @@ const groupDetail: GroupDetailType = {
   CreatedAt: "2020-20-20",
   UpdatedAt: "2020-20-20",
   Category: "전공",
+  Hire: false,
 };
 
 const commentDummy: CommentType[] = [
@@ -111,7 +112,13 @@ const GroupDetail = () => {
                     alt="즐겨찾기 아이콘"
                     onClick={heartClickhandler}
                   />
-                  <button onClick={() => setApply(true)}>신청하기</button>
+                  {groupDetail.Hire ? (
+                    <button onClick={() => setApply(true)}>신청하기</button>
+                  ) : (
+                    <button onClick={() => alert("모집기간이 지났습니다.")}>
+                      신청불가
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
