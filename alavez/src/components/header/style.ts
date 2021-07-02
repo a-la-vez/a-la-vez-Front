@@ -10,6 +10,12 @@ export const HeaderWrapper = styled.div`
   background: white;
   top: 0;
   box-shadow: rgb(0 0 0 / 8%) 0px 1px 12px;
+  z-index: 3;
+
+  img {
+    width: 30px;
+    cursor: pointer;
+  }
 
   .container {
     .menu-list {
