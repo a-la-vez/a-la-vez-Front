@@ -65,19 +65,14 @@ const PostMake = () => {
   }
 
   useEffect(() => {
-    if (
-      title.length > 5 &&
-      content.length > 5 &&
-      daedline !== "" &&
-      number !== ""
-    ) {
+    if (title.length > 5 && content.length > 5 && daedline !== "") {
       setPost(true);
 
       console.log(213);
     } else {
       setPost(false);
     }
-  }, [title, content, daedline, number]);
+  }, [title, content, daedline]);
 
   return (
     <S.PostWrapper onSubmit={handleSumit}>
