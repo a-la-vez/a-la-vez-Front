@@ -8,6 +8,7 @@ import {
   GroupSearch,
   GroupDetail,
   PostMake,
+  ApplyList,
 } from "../components/index";
 
 const Router = () => {
@@ -23,6 +24,7 @@ const Router = () => {
           <Route path="/group-search" component={GroupSearch} exact />
           <Route path="/group-detail/:id" component={GroupDetail} exact />
           <Route path="/post" component={PostMake} exact />
+          <Route path="/apply-list" component={ApplyList} exact />
         </Switch>
       </BrowserRouter>
     </>
