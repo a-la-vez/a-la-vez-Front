@@ -8,7 +8,7 @@ export const MainWrapper = styled.div`
   .input-infomation {
     height: 28px;
     position: relative;
-    top: -55px;
+    top: -12px;
     border-radius: 5px;
     box-shadow: 0 5px 7px #77737326;
     transition: all 0.5s ease-in-out;
@@ -82,10 +82,10 @@ export const Post = styled.div`
 `;
 
 export const Category = styled.div`
+  margin: 20px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
   flex-wrap: wrap;
 `;
 

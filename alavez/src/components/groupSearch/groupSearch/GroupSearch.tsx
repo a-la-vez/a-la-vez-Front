@@ -1,14 +1,14 @@
+import { useState, useRef } from "react";
+import { useHistory } from "react-router-dom";
 import * as S from "./style";
-import { useState } from "react";
 import { glass, groupImg2 } from "../../../assets";
 import { button, listDummy } from "../../../interfaces/group";
-import { ApplyForm } from "../../index";
-import { useRef } from "react";
 
 const GroupSearch = () => {
   const [selected, setSelected] = useState<number>(1);
   const [input, setInput] = useState<boolean>(false);
   const test = useRef<HTMLInputElement>(null);
+  const history = useHistory();
 
   const inputClick = () => {
     if (test.current?.focus) {
@@ -24,6 +24,10 @@ const GroupSearch = () => {
 
   const inputClickHandler = () => {
     setInput(!input);
+  };
+
+  const groupDetailChange = (id: number) => {
+    history.push(`/group-detail/${id}`);
   };
 
   return (
@@ -42,7 +46,7 @@ const GroupSearch = () => {
             </div>
           </S.InputWrapper>
           <S.Post>
-            <button>그룹 만들기</button>
+            <button onClick={() => history.push("/post")}>그룹 만들기</button>
           </S.Post>
         </S.Search>
         <div
@@ -78,7 +82,9 @@ const GroupSearch = () => {
                 <img src={groupImg2} alt="그룹 베너 사진"></img>
               </div>
               <S.GroupDescribe>
-                <a href="/group-detail/1">{list.Title}</a>
+                <div onClick={() => groupDetailChange(list.Id)}>
+                  {list.Title}
+                </div>
                 <span>{list.describe}</span>
                 <span>{list.Period}</span>
               </S.GroupDescribe>
