@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import * as S from "./style/ApplyStyle";
+import { close } from "../../../assets";
 
 interface ApplyFormProps {
   apply: boolean;
@@ -10,6 +12,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
   const [lineColor, setLineColor] = useState<boolean>(false);
   const [dataLineColor, setDateLineColor] = useState<boolean>(false);
   const [reasonLineColor, setReasonLineColor] = useState<boolean>(false);
+  const [buttonColor, setButtonColor] = useState<boolean>(false);
 
   const [inputs, setInputs] = useState({
     nick: "",
@@ -27,7 +30,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
       [name]: value,
     });
 
-    if (nick.length > 1) {
+    if (nick.length > 0) {
       setLineColor(true);
     } else {
       setLineColor(false);
@@ -39,7 +42,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
       setDateLineColor(false);
     }
 
-    if (reason.length > 1) {
+    if (reason.length > 0) {
       setReasonLineColor(true);
     } else {
       setReasonLineColor(false);
@@ -53,8 +56,12 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
       alert("항목을 모두 채워주세요");
     } else {
       alert("스터디 신청이 되었습니다.");
-
       setApply(false);
+      setLineColor(false);
+      setDateLineColor(false);
+      setReasonLineColor(false);
+      setButtonColor(false);
+
       setInputs({
         nick: "",
         date: "",
@@ -65,9 +72,16 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
     console.log(inputs);
   };
 
+  useEffect(() => {
+    if (nick.length > 0 && reason.length > 0 && date !== "") {
+      setButtonColor(true);
+    }
+  }, [nick, reason, date]);
+
   return (
     <S.ApplyWrapper style={{ display: apply ? "flex" : "none" }}>
       <S.ApplyForm onSubmit={SubmitHandler}>
+        <img src={close} alt="닫기 아이콘" onClick={() => setApply(false)} />
         <h2>음음음음음 제목임</h2>
         <S.InputWrapper>
           <div className="question">
@@ -99,7 +113,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
             />
           </div>
           <div className="question">
-            <span>신청 이유</span>
+            <span>각오 한마디</span>
             <input
               type="text"
               onChange={onChange}
@@ -113,7 +127,12 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
             />
           </div>
         </S.InputWrapper>
-        <button className="default-button">신청하기</button>
+        <button
+          className="default-button"
+          style={{ backgroundColor: buttonColor ? "#6f2dff" : "pink" }}
+        >
+          신청하기
+        </button>
       </S.ApplyForm>
     </S.ApplyWrapper>
   );

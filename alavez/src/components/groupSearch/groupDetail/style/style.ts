@@ -30,6 +30,22 @@ export const GroupDetailHeader = styled.div`
   }
 
   .date {
+    /* 그룹 수정 버튼 */
+    .modify-group {
+      border: 1px solid #8080803b;
+      padding: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 3px;
+      text-decoration: none;
+      color: black;
+
+      :hover {
+        box-shadow: 0 2px 8px #9898987a;
+        transition: all 0.3s;
+      }
+    }
+
     span {
       margin: 0 10px;
     }
@@ -143,6 +159,11 @@ export const CommentWrapper = styled.div`
     color: #9a9ba7;
     outline: none;
     font-size: 15px;
+
+    :hover {
+      background-color: #80808017;
+      transition: all 0.2s;
+    }
   }
 `;
 
