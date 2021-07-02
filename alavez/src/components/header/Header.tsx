@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { logo } from "../../assets";
 import { LinkListType } from "../../interfaces/interfaces";
 import * as S from "./style";
@@ -34,6 +34,7 @@ const linkList: LinkListType[] = [
 
 const Header = () => {
   const [select, setSelect] = useState<number>(0);
+  const history = useHistory();
 
   const haderClick = (list: any) => {
     setSelect(list.id);
@@ -43,7 +44,7 @@ const Header = () => {
     <>
       <S.HeaderWrapper>
         <div className="container">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" onClick={() => history.push("/")} />
           <ul className="menu-list">
             {linkList.map((list, index) => (
               <li key={index}>
