@@ -77,10 +77,6 @@ const GroupDetail = () => {
     setCount(!count);
   };
 
-  const applyButtonClickHandler = () => {
-    setApply(!apply);
-  };
-
   return (
     <>
       <ApplyForm apply={apply} setApply={setApply} />
@@ -91,6 +87,9 @@ const GroupDetail = () => {
               <div className="category-item">{groupDetail.Category}</div>
             </div>
             <div className="date">
+              <a href="/post" className="modify-group">
+                스터디 수정
+              </a>
               <span>작성일 : {groupDetail.CreatedAt}</span>
               <span>수정일 : {groupDetail.UpdatedAt}</span>
             </div>
@@ -112,7 +111,7 @@ const GroupDetail = () => {
                     alt="즐겨찾기 아이콘"
                     onClick={heartClickhandler}
                   />
-                  <button onClick={applyButtonClickHandler}>신청하기</button>
+                  <button onClick={() => setApply(true)}>신청하기</button>
                 </div>
               </div>
             </div>

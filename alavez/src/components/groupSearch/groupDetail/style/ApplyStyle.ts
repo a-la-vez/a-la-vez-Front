@@ -8,11 +8,12 @@ export const ApplyWrapper = styled.div`
   top: 0;
   display: flex;
   align-items: center;
+  z-index: 4;
 `;
 
 export const ApplyForm = styled.form`
   width: 20%;
-  height: 400px;
+  height: 450px;
   background-color: white;
   margin: auto;
   border-radius: 3px;
@@ -20,9 +21,24 @@ export const ApplyForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  position: relative;
 
+  & img {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    cursor: pointer;
+  }
   & h2 {
     margin: 20px;
+  }
+
+  & button {
+    width: 74%;
+    background-color: pink;
+    color: white;
+    transition: all 0.3s;
   }
 `;
 
@@ -36,7 +52,7 @@ export const InputWrapper = styled.div`
 
     & span {
       font-weight: 500;
-      margin-bottom: 5px;
+      margin: 7px 0;
     }
 
     & input {
