@@ -29,24 +29,6 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
       ...inputs,
       [name]: value,
     });
-
-    if (nick.length > 0) {
-      setLineColor(true);
-    } else {
-      setLineColor(false);
-    }
-
-    if (phone !== "") {
-      setPhoneLineColor(true);
-    } else {
-      setPhoneLineColor(false);
-    }
-
-    if (reason.length > 0) {
-      setReasonLineColor(true);
-    } else {
-      setReasonLineColor(false);
-    }
   };
 
   const SubmitHandler = (e: any) => {
@@ -75,6 +57,26 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
   useEffect(() => {
     if (nick.length > 0 && reason.length > 0 && phone !== "") {
       setButtonColor(true);
+    } else {
+      setButtonColor(false);
+    }
+
+    if (nick.length > 0) {
+      setLineColor(true);
+    } else {
+      setLineColor(false);
+    }
+
+    if (phone !== "") {
+      setPhoneLineColor(true);
+    } else {
+      setPhoneLineColor(false);
+    }
+
+    if (reason.length > 0) {
+      setReasonLineColor(true);
+    } else {
+      setReasonLineColor(false);
     }
   }, [nick, reason, phone]);
 
