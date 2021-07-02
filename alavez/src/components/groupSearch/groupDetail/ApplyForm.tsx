@@ -10,17 +10,17 @@ interface ApplyFormProps {
 
 const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
   const [lineColor, setLineColor] = useState<boolean>(false);
-  const [dataLineColor, setDateLineColor] = useState<boolean>(false);
+  const [phoneLineColor, setPhoneLineColor] = useState<boolean>(false);
   const [reasonLineColor, setReasonLineColor] = useState<boolean>(false);
   const [buttonColor, setButtonColor] = useState<boolean>(false);
 
   const [inputs, setInputs] = useState({
     nick: "",
-    date: "",
+    phone: "",
     reason: "",
   });
 
-  const { nick, reason, date } = inputs;
+  const { nick, reason, phone } = inputs;
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -36,10 +36,10 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
       setLineColor(false);
     }
 
-    if (date !== "") {
-      setDateLineColor(true);
+    if (phone !== "") {
+      setPhoneLineColor(true);
     } else {
-      setDateLineColor(false);
+      setPhoneLineColor(false);
     }
 
     if (reason.length > 0) {
@@ -52,19 +52,19 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
   const SubmitHandler = (e: any) => {
     e.preventDefault();
 
-    if (nick === "" || date === "" || reason === "") {
+    if (nick === "" || phone === "" || reason === "") {
       alert("항목을 모두 채워주세요");
     } else {
       alert("스터디 신청이 되었습니다.");
       setApply(false);
       setLineColor(false);
-      setDateLineColor(false);
+      setPhoneLineColor(false);
       setReasonLineColor(false);
       setButtonColor(false);
 
       setInputs({
         nick: "",
-        date: "",
+        phone: "",
         reason: "",
       });
     }
@@ -73,10 +73,10 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
   };
 
   useEffect(() => {
-    if (nick.length > 0 && reason.length > 0 && date !== "") {
+    if (nick.length > 0 && reason.length > 0 && phone !== "") {
       setButtonColor(true);
     }
-  }, [nick, reason, date]);
+  }, [nick, reason, phone]);
 
   return (
     <S.ApplyWrapper style={{ display: apply ? "flex" : "none" }}>
@@ -87,6 +87,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
           <div className="question">
             <span>이름</span>
             <input
+              placeholder="사용하실 이름을 입력해주세요"
               type="text"
               onChange={onChange}
               value={nick}
@@ -99,14 +100,15 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
             />
           </div>
           <div className="question">
-            <span>생년월일</span>
+            <span>전화번호</span>
             <input
-              type="date"
+              placeholder="'-'를 제외하고 입력해주세요"
+              type="phone"
               onChange={onChange}
-              value={date}
-              name="date"
+              value={phone}
+              name="phone"
               style={{
-                borderBottom: dataLineColor
+                borderBottom: phoneLineColor
                   ? "2px solid #6f2dff"
                   : "2px solid pink",
               }}
@@ -115,6 +117,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
           <div className="question">
             <span>각오 한마디</span>
             <input
+              placeholder="자신을 표현해보세요!"
               type="text"
               onChange={onChange}
               value={reason}
