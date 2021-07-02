@@ -4,18 +4,19 @@ export interface ButtonType {
 }
 
 export interface ListDummyType {
+  Id: number;
   Title: string;
   describe: string;
   Period: string;
 }
 
 export interface GroupDetailType extends ListDummyType {
-  Id: number;
   ImagePath: string;
   Content: string;
   CreatedAt: string;
   UpdatedAt: string;
   Category: string;
+  Hire: boolean;
 }
 
 export interface CommentType {
@@ -78,98 +79,46 @@ export const button: ButtonType[] = [
 
 export const listDummy: ListDummyType[] = [
   {
+    Id: 1,
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
     Period: "2020202",
   },
   {
+    Id: 2,
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
     Period: "2020202",
   },
   {
+    Id: 3,
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
     Period: "2020202",
   },
   {
+    Id: 4,
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
     Period: "2020202",
   },
   {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
-    Title: "대덕마이스터고등학교 공부할 사람!!!",
-    describe: "인원 6명",
-    Period: "2020202",
-  },
-  {
+    Id: 5,
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
     Period: "2020202",
   },
 ];
+
+/* export const groupDetail: GroupDetailType = {
+  Id: 1,
+  Title: "대덕소프트웨어마이스터고등학교를 소개해요!",
+  describe: "모집해요!!!",
+  Period: "3일간",
+  ImagePath: "groupImg2",
+  Content: "같이 공부할 사람 모집합니다.",
+  CreatedAt: "2020-20-20",
+  UpdatedAt: "2020-20-20",
+  Category: "전공",
+};
+ */
