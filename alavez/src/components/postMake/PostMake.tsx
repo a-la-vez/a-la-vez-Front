@@ -26,8 +26,8 @@ const PostMake = () => {
     });
 
     if (
-      title.length > 5 &&
-      content.length > 5 &&
+      title.length > 0 &&
+      content.length > 0 &&
       daedline !== "" &&
       number !== ""
     ) {
@@ -42,6 +42,7 @@ const PostMake = () => {
     if (title === "" || content === "" || daedline === "" || number === "") {
       alert("모든 항목을 입력해주세요");
     } else {
+      alert("스터디 모집글이 업로드 되었습니다.");
       setInputs({
         title: "",
         content: "",
@@ -144,7 +145,7 @@ const PostMake = () => {
             </label>
           </S.ContentSide>
         </S.Content>
-        <S.PostButton style={{ backgroundColor: post ? "blue" : "pink" }}>
+        <S.PostButton style={{ backgroundColor: post ? "#6f2dff" : "pink" }}>
           게시하기
         </S.PostButton>
       </S.ContentWrapper>
