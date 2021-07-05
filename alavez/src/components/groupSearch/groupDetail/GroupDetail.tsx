@@ -21,7 +21,7 @@ const groupDetail: GroupDetailType = {
 const commentDummy: CommentType[] = [
   {
     ImagePath: groupImg2,
-    Content: "어떤 방법으로 모집되나요",
+    Content: "Sdfsdfsdf",
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
