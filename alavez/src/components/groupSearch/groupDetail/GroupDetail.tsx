@@ -123,7 +123,7 @@ const GroupDetail = () => {
               </div>
             </div>
           </S.TopContent>
-          <S.BottomContent>
+          <S.BottomContent>a
             <S.CommentWrapper>
               <S.CommentHeader>
                 <span>댓글</span>
