@@ -1,7 +1,8 @@
 import React from "react";
+import { commentDummy, CommentType } from "../../../interfaces/group";
 import * as S from "./style/style";
 
-const comment = (comments: any, index: number) => {
+const Comment = (comments: any, index: number) => {
   return (
     <S.Comment key={index}>
       <div className="user-info">
@@ -14,4 +15,24 @@ const comment = (comments: any, index: number) => {
   );
 };
 
-export default comment;
+const BottomComment = () => {
+  return (
+    <S.BottomContent>
+      <S.CommentWrapper>
+        <S.CommentHeader>
+          <span>댓글</span>
+          <span>{commentDummy.length}개</span>
+        </S.CommentHeader>
+        <S.CommentInput>
+          <input type="text" placeholder="댓글을 작성해주세요" />
+        </S.CommentInput>
+        {commentDummy.map((comment: CommentType, index: number): any => (
+          <Comment key={index} comments={comment} />
+        ))}
+        <button className="comment-more">더보기</button>
+      </S.CommentWrapper>
+    </S.BottomContent>
+  );
+};
+
+export default BottomComment;
