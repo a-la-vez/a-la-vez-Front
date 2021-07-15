@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/reducers";
 import {
   ApplyForm,
   GroupDetailHeader,
@@ -9,14 +11,15 @@ import * as S from "./style/style";
 
 const GroupDetail = () => {
   const [apply, setApply] = useState<boolean>(false);
+  const groupDetail = useSelector((state: RootState) => state.posts);
 
   return (
     <>
       <ApplyForm apply={apply} setApply={setApply} />
       <S.MainWrapper>
         <S.GroupDetailContent>
-          <GroupDetailHeader />
-          <Content setApply={setApply} />
+          <GroupDetailHeader groupDetail={groupDetail} />
+          <Content setApply={setApply} groupDetail={groupDetail} />
           <BottomComment />
         </S.GroupDetailContent>
       </S.MainWrapper>

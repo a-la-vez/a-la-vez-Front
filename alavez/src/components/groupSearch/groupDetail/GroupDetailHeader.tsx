@@ -1,7 +1,8 @@
-import { groupDetail } from "../../../interfaces/group";
 import * as S from "./style/style";
+import { Delete } from "../../../assets";
+import { groupDetailProps } from "../../../interfaces/group";
 
-const GroupDetailHeader = () => {
+const GroupDetailHeader = ({ groupDetail }: groupDetailProps) => {
   return (
     <S.GroupDetailHeader>
       <div className="category">
@@ -13,6 +14,7 @@ const GroupDetailHeader = () => {
         </a>
         <span>작성일 : {groupDetail.CreatedAt}</span>
         <span>수정일 : {groupDetail.UpdatedAt}</span>
+        <img src={Delete} alt="삭제아이콘" />
       </div>
     </S.GroupDetailHeader>
   );
