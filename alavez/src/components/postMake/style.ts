@@ -77,7 +77,7 @@ export const ContentSub = styled.textarea`
 
 export const ContentSide = styled.div`
   padding: 1%;
-  width: 30%;
+  width: 35%;
   height: 300px;
   border: 1px solid #80808042;
   box-shadow: 0 2px 5px #80808030;

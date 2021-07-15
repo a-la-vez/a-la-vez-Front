@@ -11,3 +11,6 @@ export { default as PostMake } from "./postMake/PostMake";
 export { default as ApplyForm } from "./groupSearch/groupDetail/ApplyForm";
 export { default as ApplyList } from "./applyList/AppltList";
 export { default as PassModal } from "./applyList/PassModal";
+export { default as GroupDetailHeader } from "./groupSearch/groupDetail/GroupDetailHeader";
+export { default as Content } from "./groupSearch/groupDetail/Content";
+export { default as BottomComment } from "./groupSearch/groupDetail/Comment";
