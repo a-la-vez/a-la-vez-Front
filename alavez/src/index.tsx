@@ -6,15 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import reduxThunk from "redux-thunk";
-//import promiseMiddleware from "redux-promise";
+import { createStore } from "redux";
 import rootReducer from "./store/reducers";
 
-const store = createStore(
-  rootReducer
-  // applyMiddleware(reduxThunk, promiseMiddleware)
-);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
