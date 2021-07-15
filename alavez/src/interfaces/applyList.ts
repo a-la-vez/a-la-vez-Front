@@ -1,5 +1,5 @@
 export interface ApplyListType {
-  num: number;
+  id: number;
   groupName: string;
   name: string;
   phone: string;
@@ -11,72 +11,11 @@ export interface StudyMemberListType extends ApplyListType {}
 
 export interface ListProps {
   count: any;
-  setCount: any;
-  setOpenModal: any;
 }
-
-export const applyListDummy: ApplyListType[] = [
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-  {
-    num: 1,
-    groupName: "스터디인데용",
-    name: "강은빈",
-    phone: "01044380803",
-    reason: "열심히 하겠습니다!!",
-    pass: true,
-  },
-];
 
 export const studyMemberListDummy: StudyMemberListType[] = [
   {
-    num: 1,
+    id: 1,
     groupName: "스터디인데용",
     name: "강은빈",
     phone: "01044380803",
@@ -84,7 +23,7 @@ export const studyMemberListDummy: StudyMemberListType[] = [
     pass: true,
   },
   {
-    num: 1,
+    id: 2,
     groupName: "스터디인데용",
     name: "강은빈",
     phone: "01044380803",
@@ -92,7 +31,7 @@ export const studyMemberListDummy: StudyMemberListType[] = [
     pass: true,
   },
   {
-    num: 1,
+    id: 3,
     groupName: "스터디인데용",
     name: "강은빈",
     phone: "01044380803",
@@ -100,7 +39,7 @@ export const studyMemberListDummy: StudyMemberListType[] = [
     pass: true,
   },
   {
-    num: 1,
+    id: 4,
     groupName: "스터디인데용",
     name: "강은빈",
     phone: "01044380803",
@@ -108,7 +47,7 @@ export const studyMemberListDummy: StudyMemberListType[] = [
     pass: true,
   },
   {
-    num: 1,
+    id: 5,
     groupName: "스터디인데용",
     name: "강은빈",
     phone: "01044380803",

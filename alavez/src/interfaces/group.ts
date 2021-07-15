@@ -1,3 +1,5 @@
+import { groupImg2 } from "../assets";
+
 export interface ButtonType {
   id: number;
   name: string;
@@ -20,6 +22,7 @@ export interface GroupDetailType extends ListDummyType {
 }
 
 export interface CommentType {
+  Id: number;
   ImagePath: string;
   Content: string;
   CreatedAt: string;
@@ -28,6 +31,12 @@ export interface CommentType {
 
 export interface CommentPropsState extends CommentType {
   comment: [];
+}
+
+// 그룹 props type
+export interface groupDetailProps {
+  setApply?: any;
+  groupDetail: any;
 }
 
 export const button: ButtonType[] = [
@@ -110,15 +119,40 @@ export const listDummy: ListDummyType[] = [
   },
 ];
 
-/* export const groupDetail: GroupDetailType = {
-  Id: 1,
-  Title: "대덕소프트웨어마이스터고등학교를 소개해요!",
-  describe: "모집해요!!!",
-  Period: "3일간",
-  ImagePath: "groupImg2",
-  Content: "같이 공부할 사람 모집합니다.",
-  CreatedAt: "2020-20-20",
-  UpdatedAt: "2020-20-20",
-  Category: "전공",
-};
- */
+export const commentDummy: CommentType[] = [
+  {
+    Id: 1,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    Id: 2,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    Id: 3,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    Id: 4,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    Id: 5,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+];
