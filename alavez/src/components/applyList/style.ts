@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ApplyListWrapper = styled.div`
-  margin: 70px auto;
+  margin: 100px auto;
   width: 50%;
   height: 770px;
   overflow: auto;
@@ -103,10 +103,10 @@ export const ApplyList = styled.div`
   }
 `;
 
+// 승인 요청/거절 모달
 export const PassModalWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  position: absolute;
   position: absolute;
   top: 0;
   background-color: #00000042;
@@ -117,8 +117,8 @@ export const PassModalWrapper = styled.div`
 `;
 
 export const PassModal = styled.div`
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 400px;
   background-color: white;
   border-radius: 5px;
   display: flex;
@@ -131,10 +131,11 @@ export const PassModal = styled.div`
     position: absolute;
     top: 0;
     right: 0;
+    cursor: pointer;
   }
 
   & p {
-    margin: 10px;
+    margin: 12%;
     color: #636161;
   }
 

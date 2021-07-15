@@ -1,13 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { close } from "../../assets";
+import { rejectApply } from "../../store/action";
 import * as S from "./style";
 
 interface PassModalProps {
   openModal: boolean;
   setOpenModal: any;
+  userId: number;
 }
 
-const PassModal = ({ openModal, setOpenModal }: PassModalProps) => {
+const PassModal = ({ openModal, setOpenModal, userId }: PassModalProps) => {
+  const dispatch = useDispatch();
+
   return (
     <S.PassModalWrapper style={{ display: openModal ? "flex" : "none" }}>
       <S.PassModal>
@@ -33,6 +38,8 @@ const PassModal = ({ openModal, setOpenModal }: PassModalProps) => {
           <button
             onClick={() => {
               setOpenModal(false);
+              dispatch(rejectApply(userId));
+              console.log(userId);
               alert("승인을 거부 하셨습니다.");
             }}
           >
