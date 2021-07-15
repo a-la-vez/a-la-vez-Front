@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import List from "./List";
 
 const ApplyList = () => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
   const [wait, setWait] = useState<boolean>(true);
   const [member, setMember] = useState<boolean>(false);
@@ -24,7 +23,6 @@ const ApplyList = () => {
 
   return (
     <>
-      <PassModal openModal={openModal} setOpenModal={setOpenModal} />
       <S.ApplyListWrapper>
         <S.ApplySubMenu>
           <ul>
@@ -59,7 +57,7 @@ const ApplyList = () => {
             <li>모집 여부</li>
           </ul>
         </S.ApplyHeader>
-        <List count={count} setCount={setCount} setOpenModal={setOpenModal} />
+        <List count={count} />
         <S.PageNumber>
           <Pagination
             activePage={page}
