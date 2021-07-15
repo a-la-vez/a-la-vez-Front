@@ -30,6 +30,10 @@ export const GroupDetailHeader = styled.div`
   }
 
   .date {
+    & img {
+      width: 20px;
+      cursor: pointer;
+    }
     /* 그룹 수정 버튼 */
     .modify-group {
       border: 1px solid #8080803b;

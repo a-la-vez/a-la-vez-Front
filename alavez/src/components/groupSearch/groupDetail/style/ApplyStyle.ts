@@ -13,7 +13,7 @@ export const ApplyWrapper = styled.div`
 
 export const ApplyForm = styled.form`
   width: 20%;
-  height: 450px;
+  height: 500px;
   background-color: white;
   margin: auto;
   border-radius: 3px;

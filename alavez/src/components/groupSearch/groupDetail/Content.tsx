@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { heart, heartCheck } from "../../../assets";
-import { groupDetail, groupDetailProps } from "../../../interfaces/group";
+import { groupDetailProps } from "../../../interfaces/group";
 import * as S from "./style/style";
 
-const Content = ({ setApply }: groupDetailProps) => {
+const Content = ({ setApply, groupDetail }: groupDetailProps) => {
   const [heartClick, setHeartClick] = useState(heart);
   const [count, setCount] = useState<boolean>(false);
 
