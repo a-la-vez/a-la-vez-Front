@@ -1,10 +1,14 @@
-export const ADD_POSTING = "ADD_POSTING"; // 게시글 등록
-export const EDIT_POSTING = "EDIT_POSTING"; // 게시글 수정
-export const DELETE_POSTING = "DELETE_POSTING"; // 게시글 삭제
-export const ADD_COMMENT = "ADD_COMMENT"; // 댓글 작성
-export const DELETE_COMMENT = "DELETE_COMMENT"; // 댓글 삭제
-export const ADMISSION_APPLY = "ADMISSION_APPLY"; // 신청 승인
-export const REJECT_APPLY = "REJECT_APPLY"; // 신청 거절
+import { groupImg2 } from "../../assets";
+
+export const ADD_POSTING = "ADD_POSTING" as const; // 게시글 등록
+export const EDIT_POSTING = "EDIT_POSTING" as const; // 게시글 수정
+export const DELETE_POSTING = "DELETE_POSTING" as const; // 게시글 삭제
+export const ADD_COMMENT = "ADD_COMMENT" as const; // 댓글 작성
+export const DELETE_COMMENT = "DELETE_COMMENT" as const; // 댓글 삭제
+export const ADMISSION_APPLY = "ADMISSION_APPLY" as const; // 신청 승인
+export const REJECT_APPLY = "REJECT_APPLY" as const; // 신청 거절
+
+let commentId = 0;
 
 // 신청 승인 멤버 추가
 export const admission_apply = (id: number) => {
@@ -23,10 +27,21 @@ export const rejectApply = (id: number) => {
 };
 
 //댓글 작성
-export const addComment = (id: number) => {
+export const addComment = (
+  imagePath: string,
+  content: string,
+  createdAt: string,
+  userName: string
+) => {
   return {
     type: "ADD_COMMENT",
-    payload: id,
+    payload: {
+      Id: commentId++,
+      ImagePath: imagePath,
+      Content: content,
+      CreatedAt: createdAt,
+      UserName: userName,
+    },
   };
 };
 

@@ -10,34 +10,6 @@ const initialState: CommentType[] = [
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
-  {
-    Id: 2,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    Id: 3,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    Id: 4,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    Id: 5,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
 ];
 
 const comments = (
@@ -46,7 +18,12 @@ const comments = (
 ) => {
   switch (action.type) {
     case "ADD_COMMENT":
-      return state;
+      return [
+        ...state,
+        state.concat({
+            Id : payload.
+        })
+      ];
     case "DELETE_COMMENT":
       return state.filter((comment) => comment.Id !== action.payload);
     default:
