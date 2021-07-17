@@ -18,12 +18,7 @@ const comments = (
 ) => {
   switch (action.type) {
     case "ADD_COMMENT":
-      return [
-        ...state,
-        state.concat({
-            Id : payload.
-        })
-      ];
+      return [...state, state.concat({})];
     case "DELETE_COMMENT":
       return state.filter((comment) => comment.Id !== action.payload);
     default:
