@@ -2,25 +2,37 @@ import { groupImg2 } from "../../assets";
 import { CommentType } from "../../interfaces/group";
 import { CommentAction } from "../action/actionType";
 
-const initialState: CommentType[] = [
+export type comment = {
+  id: number;
+  content: string | number;
+};
+
+const initialState: comment[] = [
   {
-    Id: 1,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
+    id: 1,
+    content: "Sdfsdfsdf",
+  },
+  {
+    id: 2,
+    content: "Sdfsdfsdf",
   },
 ];
 
+type commentType = comment[];
+
 const comments = (
-  state: CommentType[] = initialState,
+  state: commentType = initialState,
   action: CommentAction
-) => {
+): commentType => {
   switch (action.type) {
     case "ADD_COMMENT":
-      return [...state, state.concat({})];
+      const todo = {
+        id: Date.now().toString(),
+        content: action.payload,
+      };
+      return [...state, todo];
     case "DELETE_COMMENT":
-      return state.filter((comment) => comment.Id !== action.payload);
+      return state.filter((comment) => comment.id !== action.payload);
     default:
       return state;
   }

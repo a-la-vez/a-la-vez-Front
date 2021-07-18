@@ -27,21 +27,10 @@ export const rejectApply = (id: number) => {
 };
 
 //댓글 작성
-export const addComment = (
-  imagePath: string,
-  content: string,
-  createdAt: string,
-  userName: string
-) => {
+export const addComment = (content: string) => {
   return {
     type: "ADD_COMMENT",
-    payload: {
-      Id: commentId++,
-      ImagePath: imagePath,
-      Content: content,
-      CreatedAt: createdAt,
-      UserName: userName,
-    },
+    payload: content,
   };
 };
 
