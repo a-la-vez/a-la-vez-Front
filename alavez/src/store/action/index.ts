@@ -10,6 +10,13 @@ export const REJECT_APPLY = "REJECT_APPLY" as const; // 신청 거절
 
 let commentId = 0;
 
+export interface commentProps {
+  type?: string;
+  payload?: number;
+  id?: number;
+  content?: string;
+}
+
 // 신청 승인 멤버 추가
 export const admission_apply = (id: number) => {
   return {
@@ -26,6 +33,7 @@ export const rejectApply = (id: number) => {
   };
 };
 
+//댓글 작성
 //댓글 작성
 export const addComment = (content: string) => {
   return {
