@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Delete } from "../../../assets";
 import { CommentType } from "../../../interfaces/group";
@@ -19,7 +20,7 @@ const Comment = (comments: any, index: number) => {
           src={Delete}
           alt="댓글삭제아이콘"
           onClick={() => {
-            dispatch(deleteComment(comments.comments.Id));
+            dispatch(deleteComment(comments.comments.id));
             alert("댓글이 삭제되었습니다.");
           }}
         ></img>
@@ -31,6 +32,7 @@ const Comment = (comments: any, index: number) => {
 
 const BottomComment = () => {
   const comments = useSelector((state: RootState) => state.comments);
+  const [todoInput, setTodoInput] = useState<string>("");
 
   return (
     <S.BottomContent>
@@ -42,7 +44,7 @@ const BottomComment = () => {
         <S.CommentInput>
           <input type="text" placeholder="댓글을 작성해주세요" />
         </S.CommentInput>
-        {comments.map((comment: CommentType, index: number): any => (
+        {comments?.map((comment: CommentType, index: number): any => (
           <Comment key={index} comments={comment} />
         ))}
         <button className="comment-more">더보기</button>
