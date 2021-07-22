@@ -24,7 +24,7 @@ export interface GroupDetailType extends ListDummyType {
 export interface CommentType {
   id: number;
   ImagePath: string;
-  content: string;
+  Content: string;
   CreatedAt: string;
   UserName: string;
 }
@@ -123,35 +123,35 @@ export const commentDummy: CommentType[] = [
   {
     id: 1,
     ImagePath: groupImg2,
-    content: "Sdfsdfsdf",
+    Content: "Sdfsdfsdf",
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
   {
     id: 2,
     ImagePath: groupImg2,
-    content: "Sdfsdfsdf",
+    Content: "Sdfsdfsdf",
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
   {
     id: 3,
     ImagePath: groupImg2,
-    content: "Sdfsdfsdf",
+    Content: "Sdfsdfsdf",
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
   {
     id: 4,
     ImagePath: groupImg2,
-    content: "Sdfsdfsdf",
+    Content: "Sdfsdfsdf",
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
   {
     id: 5,
     ImagePath: groupImg2,
-    content: "Sdfsdfsdf",
+    Content: "Sdfsdfsdf",
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
