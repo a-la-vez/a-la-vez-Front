@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { auth } from "../../api/api/auth/auth";
-import { inputsState } from "../../interfaces/login";
 import * as S from "./style";
+import { Link } from "react-router-dom";
+import { inputsState } from "../../interfaces/login";
 import { ConfirmModal } from "../index";
+import axios from "axios";
+import { useMutation } from "react-query";
 
 const SignUp = () => {
   const [fileUrl, setFileUrl] = useState("");
   const [modal, setModal] = useState<boolean>(false);
+  const [user, serUser] = useState<object>({});
 
   //이미지 파일 선택시 미리보기
   function processImage(
@@ -24,10 +26,10 @@ const SignUp = () => {
     email: "",
     password: "",
     re_password: "",
-    file: "",
+    //file: "",
   });
 
-  const { nick, email, password, re_password, file } = inputs;
+  const { nick, email, password, re_password } = inputs;
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement> | any) => {
     const { value, name } = e.target;
@@ -38,7 +40,16 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = (e: any | React.FormEventHandler<HTMLFormElement>) => {
+  const mutation = useMutation((inputs) =>
+    axios.post("http://192.168.137.38:3000/auth/join", inputs).then((res) => {
+      serUser(res.data);
+    })
+  );
+
+  const handleSubmit = async (
+    e: any | React.FormEventHandler<HTMLFormElement>,
+    data: any
+  ) => {
     e.preventDefault();
 
     setInputs({
@@ -46,11 +57,10 @@ const SignUp = () => {
       email: "",
       password: "",
       re_password: "",
-      file: "",
+      //file: "",
     });
 
-    auth(inputs);
-    console.log(inputs);
+    mutation.mutate(data);
   };
 
   const openModal = () => {
@@ -59,9 +69,9 @@ const SignUp = () => {
 
   return (
     <S.MainWrapper>
-      <ConfirmModal modal={modal} setModal={setModal} />
+      <ConfirmModal modal={modal} setModal={setModal} user={user} />
       <S.Main>
-        <S.LoginWrapper onSubmit={handleSubmit}>
+        <S.LoginWrapper onSubmit={(e) => handleSubmit(e, inputs)}>
           <S.Title>
             <span>SIGN IN</span>
             <Link to="/login">로그인 &gt; </Link>
@@ -76,7 +86,7 @@ const SignUp = () => {
                 onChange={processImage}
                 className="profile-item"
                 name="file"
-                value={file}
+                //value={file}
               ></input>
             </label>
 
