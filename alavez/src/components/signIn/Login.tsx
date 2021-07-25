@@ -1,8 +1,19 @@
+import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useMutation } from "react-query";
+import { Link, useHistory } from "react-router-dom";
 import * as S from "./style";
 
 const LogIn = () => {
+  const history = useHistory();
+
+  const mutation = useMutation((inputs) =>
+    axios.post("http://192.168.137.38:3000/auth/login", inputs).then((res) => {
+      localStorage.setItem("token", res.data);
+      history.push("/");
+    })
+  );
+
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -19,7 +30,7 @@ const LogIn = () => {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: any, data: any) => {
     e.preventDefault();
 
     setInputs({
@@ -27,13 +38,17 @@ const LogIn = () => {
       password: "",
     });
 
-    console.log(inputs);
+    mutation.mutate(data);
   };
 
   return (
     <S.MainWrapper>
       <S.Main>
-        <S.LoginWrapper onSubmit={handleSubmit}>
+        <S.LoginWrapper
+          onSubmit={(e) => {
+            handleSubmit(e, inputs);
+          }}
+        >
           <S.Title>
             <span>LOGIN</span>
             <Link to="/sign-up">회원가입 &gt;</Link>
