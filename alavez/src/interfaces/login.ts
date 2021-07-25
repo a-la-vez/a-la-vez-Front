@@ -3,11 +3,12 @@ export interface inputsState {
   email: string;
   password: string;
   re_password: string;
-  file: string;
+  //file: string;
 }
 
 export interface inputComfirm {
-  confirm: string;
+  code: string;
+  user?: object;
 }
 
 export interface a {
@@ -18,4 +19,9 @@ export interface a {
 export interface modal {
   modal: boolean;
   setModal: any;
+  user: any;
+}
+
+export interface user extends inputsState {
+  code: number;
 }
