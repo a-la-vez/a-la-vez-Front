@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { useRef } from "react";
+import React, { useEffect, useState } from "react";
+import { useMutation } from "react-query";
 import { cancel } from "../../assets";
 import { inputComfirm, modal } from "../../interfaces/login";
+import axios from "axios";
 import * as S from "./style";
 
-const ConfirmModal = ({ modal, setModal }: modal) => {
+const ConfirmModal = ({ modal, setModal, user }: modal) => {
   const [btnColor, setBtnColor] = useState<boolean>(false);
 
   const [inputs, setInputs] = useState<inputComfirm>({
-    confirm: "",
+    code: "",
+    user: user.user,
   });
 
-  const { confirm } = inputs;
+  const { code } = inputs;
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement> | any) => {
     const { value, name } = e.target;
@@ -28,13 +30,24 @@ const ConfirmModal = ({ modal, setModal }: modal) => {
     });
   };
 
-  const handleSubmit = (e: any | React.FormEventHandler<HTMLFormElement>) => {
+  const mutation = useMutation((inputs) =>
+    axios.post("http://192.168.137.38:3000/auth/code", inputs)
+  );
+
+  const handleSubmit = (
+    e: any | React.FormEventHandler<HTMLFormElement>,
+    data: any
+  ) => {
     e.preventDefault();
 
     setInputs({
-      confirm: "",
+      code: "",
+      user: user.user,
     });
 
+    console.log(data);
+
+    mutation.mutate(data);
     console.log(inputs);
   };
 
@@ -42,9 +55,13 @@ const ConfirmModal = ({ modal, setModal }: modal) => {
     setModal(!modal);
   };
 
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   return (
     <S.ModalWrapper modal={modal}>
-      <S.ConfirmWrapper onSubmit={handleSubmit}>
+      <S.ConfirmWrapper onSubmit={(e) => handleSubmit(e, inputs)}>
         <S.Title>
           <span>인증번호 확인</span>
           <img src={cancel} alt="닫기 버튼" onClick={closeModal}></img>
@@ -56,8 +73,8 @@ const ConfirmModal = ({ modal, setModal }: modal) => {
             onChange={onChange}
             placeholder="인증번호를 입력해주세요"
             type="text"
-            name="confirm"
-            value={confirm}
+            name="code"
+            value={code}
           />
         </div>
         <button
