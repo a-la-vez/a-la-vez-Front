@@ -1,6 +1,6 @@
 import axios, { Method } from "axios";
 
-const MAINURL = "http://localhost:3000/";
+export const MAINURL = "http://192.168.137.38:3000";
 
 export function request(
   method: Method,
