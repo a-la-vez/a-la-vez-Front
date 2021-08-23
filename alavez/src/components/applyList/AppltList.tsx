@@ -11,6 +11,8 @@ const ApplyList = () => {
   const [wait, setWait] = useState<boolean>(true);
   const [member, setMember] = useState<boolean>(false);
   const [count, setCount] = useState<number>(1);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [userId, setUserId] = useState<number>(0);
 
   useEffect(() => {
     console.log(count);
@@ -23,6 +25,11 @@ const ApplyList = () => {
 
   return (
     <>
+      <PassModal
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        userId={userId}
+      />
       <S.ApplyListWrapper>
         <S.ApplySubMenu>
           <ul>
@@ -57,7 +64,7 @@ const ApplyList = () => {
             <li>모집 여부</li>
           </ul>
         </S.ApplyHeader>
-        <List count={count} />
+        <List count={count} setOpenModal={setOpenModal} setUserId={setUserId} />
         <S.PageNumber>
           <Pagination
             activePage={page}
