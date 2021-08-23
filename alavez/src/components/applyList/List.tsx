@@ -5,19 +5,12 @@ import PassModal from "./PassModal";
 import { useState } from "react";
 import { RootState } from "../../store/reducers";
 
-const List = ({ count }: ListProps) => {
-  const [openModal, setOpenModal] = useState<boolean>(false);
-  const [userId, setUserId] = useState<number>(0);
-
+const List = ({ count, setOpenModal, setUserId }: ListProps) => {
   const test = useSelector((state: RootState) => state.apply);
+
   return (
     <>
       <S.ApplyList>
-        <PassModal
-          openModal={openModal}
-          setOpenModal={setOpenModal}
-          userId={userId}
-        />
         {count === 1 ? (
           <>
             {test.map((i) => (
