@@ -11,6 +11,8 @@ export interface StudyMemberListType extends ApplyListType {}
 
 export interface ListProps {
   count: any;
+  setOpenModal?: any;
+  setUserId?: any;
 }
 
 export const studyMemberListDummy: StudyMemberListType[] = [
