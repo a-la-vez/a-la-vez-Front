@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { close } from "../../assets";
 import { rejectApply } from "../../store/action";
+import { ToastContainer, toast } from "react-toastify";
 import * as S from "./style";
 
 interface PassModalProps {
@@ -12,6 +13,7 @@ interface PassModalProps {
 
 const PassModal = ({ openModal, setOpenModal, userId }: PassModalProps) => {
   const dispatch = useDispatch();
+  const notify = () => toast("Wow so easy!");
 
   return (
     <S.PassModalWrapper style={{ display: openModal ? "flex" : "none" }}>
@@ -36,16 +38,18 @@ const PassModal = ({ openModal, setOpenModal, userId }: PassModalProps) => {
             승인
           </button>
           <button
-            onClick={() => {
+            onClick={
+              /* () => {
               setOpenModal(false);
               dispatch(rejectApply(userId));
               console.log(userId);
-              alert("승인을 거부 하셨습니다.");
-            }}
+            } */ notify
+            }
           >
             거부
           </button>
         </div>
+        <ToastContainer position="top-left" />
       </S.PassModal>
     </S.PassModalWrapper>
   );
