@@ -24,6 +24,27 @@ const initialState: CommentType[] = [
     CreatedAt: "2020-20-20",
     UserName: "은빈",
   },
+  {
+    id: 4,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    id: 5,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
+  {
+    id: 6,
+    ImagePath: groupImg2,
+    Content: "Sdfsdfsdf",
+    CreatedAt: "2020-20-20",
+    UserName: "은빈",
+  },
 ];
 
 type commentType = CommentType[];

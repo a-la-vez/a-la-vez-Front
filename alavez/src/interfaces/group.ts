@@ -1,6 +1,6 @@
 import { groupImg2 } from "../assets";
 
-export interface ButtonType {
+export interface CategoryType {
   id: number;
   name: string;
 }
@@ -39,7 +39,7 @@ export interface groupDetailProps {
   groupDetail: any;
 }
 
-export const button: ButtonType[] = [
+export const categoryList: CategoryType[] = [
   {
     id: 1,
     name: "전체",
@@ -111,6 +111,55 @@ export const listDummy: ListDummyType[] = [
     describe: "인원 6명",
     Period: "2020202",
   },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+  {
+    Id: 5,
+    Title: "대덕마이스터고등학교 공부할 사람!!!",
+    describe: "인원 6명",
+    Period: "2020202",
+  },
+
   {
     Id: 5,
     Title: "대덕마이스터고등학교 공부할 사람!!!",
