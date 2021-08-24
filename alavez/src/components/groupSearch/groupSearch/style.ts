@@ -71,9 +71,9 @@ export const Post = styled.div`
   & button {
     cursor: pointer;
     color: white;
-    width: 80px;
-    padding: 5px;
-    border-radius: 3px;
+    width: 100px;
+    padding: 8px;
+    border-radius: 5px;
     background-color: #6f2dff;
     border: none;
     outline: none;
