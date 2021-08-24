@@ -151,6 +151,13 @@ export const CommentWrapper = styled.div`
   width: 100%;
   height: 100%;
 
+  .comment-none {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    color: #9a9ba7;
+  }
+
   //더보기 버튼
   .comment-more {
     cursor: pointer;

@@ -64,10 +64,10 @@ export const Content = styled.div`
 
 export const ContentSub = styled.textarea`
   padding: 2%;
-  min-width: 55%;
+  width: 55%;
   max-width: 55%;
-  min-height: 280px;
   max-height: 280px;
+  resize: none;
   outline: none;
   border: none;
   border-radius: 3px;
@@ -112,8 +112,8 @@ export const ContentSide = styled.div`
 
 export const PostButton = styled.button`
   margin: 50px auto;
-  width: 300px;
-  height: 30px;
+  width: 100%;
+  height: 40px;
   color: white;
   background-color: #6f2dff;
   outline: none;
