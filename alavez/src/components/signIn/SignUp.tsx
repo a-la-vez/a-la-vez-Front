@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import * as S from "./style";
 import { Link } from "react-router-dom";
 import { inputsState } from "../../interfaces/login";
-import { ConfirmModal } from "../index";
 import axios from "axios";
 import { useMutation } from "react-query";
 
 const SignUp = () => {
   const [fileUrl, setFileUrl] = useState("");
-  const [modal, setModal] = useState<boolean>(false);
   const [user, serUser] = useState<object>({});
 
   //이미지 파일 선택시 미리보기
@@ -26,10 +24,10 @@ const SignUp = () => {
     email: "",
     password: "",
     re_password: "",
-    //file: "",
+    imagePath: "",
   });
 
-  const { nick, email, password, re_password } = inputs;
+  const { nick, email, password, re_password, imagePath } = inputs;
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement> | any) => {
     const { value, name } = e.target;
@@ -57,19 +55,14 @@ const SignUp = () => {
       email: "",
       password: "",
       re_password: "",
-      //file: "",
+      imagePath: "",
     });
 
     mutation.mutate(data);
   };
 
-  const openModal = () => {
-    setModal(!modal);
-  };
-
   return (
     <S.MainWrapper>
-      <ConfirmModal modal={modal} setModal={setModal} user={user} />
       <S.Main>
         <S.LoginWrapper onSubmit={(e) => handleSubmit(e, inputs)}>
           <S.Title>
@@ -85,8 +78,8 @@ const SignUp = () => {
                 accept="image/*"
                 onChange={processImage}
                 className="profile-item"
-                name="file"
-                //value={file}
+                name="imagePath"
+                value={imagePath}
               ></input>
             </label>
 
@@ -122,9 +115,7 @@ const SignUp = () => {
               />
             </div>
           </div>
-          <button type="submit" onClick={openModal}>
-            인증하러 가기
-          </button>
+          <button type="submit">가입하기</button>
         </S.LoginWrapper>
       </S.Main>
     </S.MainWrapper>
