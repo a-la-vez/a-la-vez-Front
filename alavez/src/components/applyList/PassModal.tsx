@@ -4,6 +4,7 @@ import { close } from "../../assets";
 import { rejectApply } from "../../store/action";
 import { ToastContainer, toast } from "react-toastify";
 import * as S from "./style";
+import { ToastSuccess } from "../../hook/toastHook";
 
 interface PassModalProps {
   openModal: boolean;
@@ -13,10 +14,10 @@ interface PassModalProps {
 
 const PassModal = ({ openModal, setOpenModal, userId }: PassModalProps) => {
   const dispatch = useDispatch();
-  const notify = () => toast("Wow so easy!");
 
   return (
     <S.PassModalWrapper style={{ display: openModal ? "flex" : "none" }}>
+      <ToastContainer />
       <S.PassModal>
         <img
           src={close}
@@ -32,24 +33,13 @@ const PassModal = ({ openModal, setOpenModal, userId }: PassModalProps) => {
           <button
             onClick={() => {
               setOpenModal(false);
-              alert("승인되었습니다.");
+              ToastSuccess("승인되었습니다.");
             }}
           >
             승인
           </button>
-          <button
-            onClick={
-              /* () => {
-              setOpenModal(false);
-              dispatch(rejectApply(userId));
-              console.log(userId);
-            } */ notify
-            }
-          >
-            거부
-          </button>
+          <button>거부</button>
         </div>
-        <ToastContainer position="top-left" />
       </S.PassModal>
     </S.PassModalWrapper>
   );
