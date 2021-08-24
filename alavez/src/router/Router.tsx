@@ -17,11 +17,11 @@ const Router = () => {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route path="/" component={Main} exact />
+          {/*  <Route path="/" component={Main} exact /> */}
           <Route path="/login" component={Login} exact />
           <Route path="/sign-up" component={SignUp} exact />
           <Route path="/my-page" component={MyPage} exact />
-          <Route path="/group-search" component={GroupSearch} exact />
+          <Route path="/" component={GroupSearch} exact />
           <Route path="/group-detail/:id" component={GroupDetail} exact />
           <Route path="/post" component={PostMake} exact />
           <Route path="/apply-list" component={ApplyList} exact />
