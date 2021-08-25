@@ -8,8 +8,8 @@ const LogIn = () => {
   const history = useHistory();
 
   const mutation = useMutation((inputs) =>
-    axios.post("http://192.168.137.38:3000/auth/login", inputs).then((res) => {
-      localStorage.setItem("token", res.data);
+    axios.post("https://qovh.herokuapp.com/auth/login", inputs).then((res) => {
+      localStorage.setItem("token", res.data.token);
       history.push("/");
     })
   );
