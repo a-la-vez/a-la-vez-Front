@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import * as S from "./style/ApplyStyle";
 import { close } from "../../../assets";
+import { ToastError, ToastSuccess } from "../../../hook/toastHook";
 
 interface ApplyFormProps {
   apply: boolean;
@@ -35,9 +36,9 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
     e.preventDefault();
 
     if (nick === "" || phone === "" || reason === "") {
-      alert("항목을 모두 채워주세요");
+      ToastError("항목을 모두 채워주세요");
     } else {
-      alert("스터디 신청이 되었습니다.");
+      ToastSuccess("스터디 신청이 되었습니다.");
       setApply(false);
       setLineColor(false);
       setPhoneLineColor(false);
