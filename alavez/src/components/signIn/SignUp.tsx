@@ -80,6 +80,7 @@ const SignUp = () => {
                 accept="image/*"
                 onChange={(e) => {
                   processImage(e);
+                  onChange(e);
                   console.log(e.target.value);
                 }}
                 className="profile-item"
