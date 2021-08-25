@@ -24,13 +24,15 @@ const SignUp = () => {
     email: "",
     password: "",
     re_password: "",
-    imagePath: "",
+    file: "",
   });
 
-  const { nick, email, password, re_password, imagePath } = inputs;
+  const { nick, email, password, re_password, file } = inputs;
 
   const onChange = (e: React.InputHTMLAttributes<HTMLInputElement> | any) => {
     const { value, name } = e.target;
+
+    console.log(value);
 
     setInputs({
       ...inputs,
@@ -39,7 +41,7 @@ const SignUp = () => {
   };
 
   const mutation = useMutation((inputs) =>
-    axios.post("http://192.168.137.38:3000/auth/join", inputs).then((res) => {
+    axios.post("https://qovh.herokuapp.com/auth/join", inputs).then((res) => {
       serUser(res.data);
     })
   );
@@ -55,7 +57,7 @@ const SignUp = () => {
       email: "",
       password: "",
       re_password: "",
-      imagePath: "",
+      file: "",
     });
 
     mutation.mutate(data);
@@ -76,10 +78,13 @@ const SignUp = () => {
               <input
                 type="file"
                 accept="image/*"
-                onChange={processImage}
+                onChange={(e) => {
+                  processImage(e);
+                  console.log(e.target.value);
+                }}
                 className="profile-item"
-                name="imagePath"
-                value={imagePath}
+                name="file"
+                value={file}
               ></input>
             </label>
 
