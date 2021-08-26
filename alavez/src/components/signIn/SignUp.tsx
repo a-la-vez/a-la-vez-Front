@@ -81,7 +81,7 @@ const SignUp = () => {
                 onChange={(e) => {
                   processImage(e);
                   onChange(e);
-                  console.log(e.target.value);
+                  console.log(e.target.files);
                 }}
                 className="profile-item"
                 name="file"
