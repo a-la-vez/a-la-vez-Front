@@ -15,10 +15,22 @@ const PostMake = () => {
   const [post, setPost] = useState<boolean>(false);
   const [categorySelected, setCategorySelected] = useState<string>("all");
 
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    console.log(token);
+  }, [token]);
+
   const mutation = useMutation((inputs) =>
-    axios.post("https://qovh.herokuapp.com/post/write", inputs).then((res) => {
-      console.log(res);
-    })
+    axios
+      .post("https://qovh.herokuapp.com/post/write", inputs, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
   );
 
   const [inputs, setInputs] = useState({
