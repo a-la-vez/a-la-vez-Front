@@ -37,6 +37,8 @@ export interface CommentPropsState extends CommentType {
 export interface groupDetailProps {
   setApply?: any;
   groupDetail: any;
+  match?: any;
+  location?: any;
 }
 
 export const categoryList: CategoryType[] = [
