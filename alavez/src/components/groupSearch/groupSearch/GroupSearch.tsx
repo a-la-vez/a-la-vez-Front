@@ -12,7 +12,7 @@ const GroupSearch = () => {
   const test = useRef<HTMLInputElement>(null);
   const history = useHistory();
 
-  const { isLoading, error, data } = useQuery("fetchLuke", () =>
+  const { isLoading, error, data } = useQuery("post", () =>
     axios("https://qovh.herokuapp.com/post")
   );
 
@@ -77,19 +77,19 @@ const GroupSearch = () => {
             <>잠시만 기달려주세요!!</>
           ) : (
             <>
-              {listDummy.map((list, index) => (
-                <S.GroupItem key={index}>
+              {data?.data.posts.map((post: any) => (
+                <S.GroupItem key={post.id}>
                   <div className="group-img">
                     <img src={groupImg2} alt="그룹 베너 사진"></img>
                   </div>
                   <S.GroupDescribe>
                     <div
-                      onClick={() => history.push(`/group-detail/${list.Id}`)}
+                      onClick={() => history.push(`/group-detail/${post.id}`)}
                     >
-                      {list.Title}
+                      {post.title}
                     </div>
-                    <span>{list.describe}</span>
-                    <span>{list.Period}</span>
+                    <span>{post.describe}</span>
+                    <span>{post.period}</span>
                   </S.GroupDescribe>
                 </S.GroupItem>
               ))}
