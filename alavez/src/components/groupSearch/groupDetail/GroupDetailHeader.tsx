@@ -1,19 +1,8 @@
 import * as S from "./style/style";
 import { Delete } from "../../../assets";
 import { groupDetailProps } from "../../../interfaces/group";
-import { useMutation, useQuery } from "react-query";
-import axios from "axios";
 
-const GroupDetailHeader = (
-  { groupDetail }: groupDetailProps,
-  { match }: any
-) => {
-  /* const { isLoading, data, error } = useQuery("postDetail", () => {
-    axios(`https://qovh.herokuapp.com/post${id}`);
-  }); */
-
-  console.dir(match);
-
+const GroupDetailHeader = ({ groupDetail }: groupDetailProps) => {
   return (
     <S.GroupDetailHeader>
       <div className="category">
