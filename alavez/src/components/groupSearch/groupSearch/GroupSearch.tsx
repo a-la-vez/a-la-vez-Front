@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useQuery } from "react-query";
 import * as S from "./style";
 import { glass, groupImg2 } from "../../../assets";
-import { categoryList, listDummy } from "../../../interfaces/group";
+import { categoryList } from "../../../interfaces/group";
 import axios from "axios";
 
 const GroupSearch = () => {
@@ -78,7 +78,7 @@ const GroupSearch = () => {
           ) : (
             <>
               {data?.data.posts.map((post: any) => (
-                <S.GroupItem key={post.id}>
+                <Link to={`/group-detail/${post.id}`} key={post.id}>
                   <div className="group-img">
                     <img src={groupImg2} alt="그룹 베너 사진"></img>
                   </div>
@@ -91,7 +91,7 @@ const GroupSearch = () => {
                     <span>{post.describe}</span>
                     <span>{post.period}</span>
                   </S.GroupDescribe>
-                </S.GroupItem>
+                </Link>
               ))}
             </>
           )}
