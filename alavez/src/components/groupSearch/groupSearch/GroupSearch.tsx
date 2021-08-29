@@ -78,20 +78,16 @@ const GroupSearch = () => {
           ) : (
             <>
               {data?.data.posts.map((post: any) => (
-                <Link to={`/group-detail/${post.id}`} key={post.id}>
+                <S.GroupItem href={`/group-detail/${post.id}`} key={post.id}>
                   <div className="group-img">
                     <img src={groupImg2} alt="그룹 베너 사진"></img>
                   </div>
                   <S.GroupDescribe>
-                    <div
-                      onClick={() => history.push(`/group-detail/${post.id}`)}
-                    >
-                      {post.title}
-                    </div>
+                    <p>{post.title}</p>
                     <span>{post.describe}</span>
                     <span>{post.period}</span>
                   </S.GroupDescribe>
-                </Link>
+                </S.GroupItem>
               ))}
             </>
           )}
