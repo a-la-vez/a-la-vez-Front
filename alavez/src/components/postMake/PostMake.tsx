@@ -33,9 +33,10 @@ const PostMake = () => {
     category: "",
     period: "",
     personnel: "",
+    imagePath: fileUrl,
   });
 
-  const { title, content, period, category, personnel } = inputs;
+  const { title, content, period, category, personnel, imagePath } = inputs;
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -51,7 +52,8 @@ const PostMake = () => {
       content.length > 0 &&
       period !== "" &&
       category !== "" &&
-      personnel !== ""
+      personnel !== "" &&
+      imagePath !== ""
     ) {
       setPost(!post);
     }
@@ -83,6 +85,7 @@ const PostMake = () => {
         category: "",
         period: "",
         personnel: "",
+        imagePath: "",
       });
     }
 
@@ -92,7 +95,9 @@ const PostMake = () => {
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
     const imageFile = e.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
-    if (imageFile === "") {
+
+    console.log(imageFile);
+    if (imageFile === null) {
       setFileUrl(
         "https://www.google.com/search?q=%EA%B3%A0%EC%96%91%EC%9D%B4+%EC%82%AC%EC%A7%84&sxsrf=ALeKk03Wk0cnVAi3nMILUKuQ8AhOs58XtA:1629809815944&tbm=isch&source=iu&ictx=1&fir=NpMi5nVF1QK1MM%252Ck3mACyoxPXAFMM%252C_&vet=1&usg=AI4_-kSdvsWpvHjLo_Y09K2M3vRv47DoMA&sa=X&ved=2ahUKEwipqYXZ2snyAhWNOZQKHcZWClwQ9QF6BAgZEAE#imgrc=NpMi5nVF1QK1MM"
       );
@@ -174,7 +179,14 @@ const PostMake = () => {
             </div>
             <label>
               <img className="profile-img" src={fileUrl} alt="" />
-              <input type="file" onChange={processImage} />
+              <input
+                type="file"
+                onChange={(e) => {
+                  processImage(e);
+                  onChange(e);
+                  console.log(e.target.files);
+                }}
+              />
             </label>
           </S.ContentSide>
         </S.Content>
