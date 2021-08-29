@@ -39,6 +39,7 @@ export interface groupDetailProps {
   groupDetail: any;
   match?: any;
   location?: any;
+  postDelete?: any;
 }
 
 export const categoryList: CategoryType[] = [
