@@ -97,7 +97,7 @@ export const GroupWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-export const GroupItem = styled.div`
+export const GroupItem = styled.a`
   width: 23%;
   padding: 1%;
   height: 300px;
@@ -106,7 +106,8 @@ export const GroupItem = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-
+  text-decoration: none;
+  color: black;
   .group-img {
     overflow: hidden;
   }

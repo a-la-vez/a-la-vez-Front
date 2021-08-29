@@ -19,15 +19,15 @@ const Content = ({ setApply, groupDetail }: groupDetailProps) => {
   return (
     <S.TopContent>
       <div className="group-img">
-        <img src={groupDetail.ImagePath} alt="그룹이미지" />
+        <img src={groupDetail.imagePath} alt="그룹이미지" />
       </div>
       <div className="side-detail">
         <div className="side-detail-top">
-          <p>{groupDetail.Title}</p>
-          <p>모집기간 : {groupDetail.Period}</p>
+          <p>{groupDetail.title}</p>
+          <p>모집기간 : {groupDetail.period}</p>
         </div>
         <div className="side-detail-mid">
-          <p>{groupDetail.Content}</p>
+          <p>{groupDetail.content}</p>
           <div className="button-item">
             <img
               src={heartClick}
