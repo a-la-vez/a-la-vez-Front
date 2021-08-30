@@ -40,6 +40,7 @@ export interface groupDetailProps {
   match?: any;
   location?: any;
   postDelete?: any;
+  history?: any;
 }
 
 export const categoryList: CategoryType[] = [
