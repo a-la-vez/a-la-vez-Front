@@ -23,7 +23,7 @@ const Router = () => {
           <Route path="/my-page" component={MyPage} exact />
           <Route path="/" component={GroupSearch} exact />
           <Route path="/group-detail/:id" component={GroupDetail} exact />
-          <Route path="/post" component={PostMake} exact />
+          <Route path="/post/:id" component={PostMake} exact />
           <Route path="/apply-list" component={ApplyList} exact />
         </Switch>
       </BrowserRouter>
