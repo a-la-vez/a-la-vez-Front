@@ -51,6 +51,7 @@ const GroupDetail = ({ match }: any) => {
             <GroupDetailHeader
               groupDetail={data?.data.post}
               postDelete={deleteClickHandler}
+              history={history}
             />
             <Content setApply={setApply} groupDetail={data?.data.post} />
             <BottomComment />
