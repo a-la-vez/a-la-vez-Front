@@ -8,7 +8,7 @@ import { ToastError, ToastSuccess } from "../../hook/toastHook";
 import { categoryList } from "../../interfaces/group";
 import * as S from "./style";
 
-const PostMake = () => {
+const PostMake = ({ match }: any) => {
   const history = useHistory();
   const [fileUrl, setFileUrl] = useState<string>("");
   const [selected, setSelected] = useState<number>(1);
@@ -26,6 +26,8 @@ const PostMake = () => {
         console.log(res);
       })
   );
+
+  console.dir(match);
 
   const [inputs, setInputs] = useState({
     title: "",
@@ -88,8 +90,6 @@ const PostMake = () => {
         imagePath: "",
       });
     }
-
-    console.log(inputs);
   };
 
   function processImage(e: React.ChangeEventHandler<HTMLInputElement> | any) {
