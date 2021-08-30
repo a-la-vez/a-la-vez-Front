@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useQuery } from "react-query";
 import * as S from "./style";
 import { glass, groupImg2 } from "../../../assets";
@@ -15,8 +15,6 @@ const GroupSearch = () => {
   const { isLoading, error, data } = useQuery("post", () =>
     axios("https://qovh.herokuapp.com/post")
   );
-
-  console.log(data?.data);
 
   const inputClick = () => {
     if (test.current?.focus) {
