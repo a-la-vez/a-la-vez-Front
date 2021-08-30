@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useMutation, useQuery } from "react-query";
+import { useHistory } from "react-router-dom";
+import { ToastSuccess } from "../../../hook/toastHook";
 import {
   ApplyForm,
   GroupDetailHeader,
@@ -11,6 +13,7 @@ import * as S from "./style/style";
 
 const GroupDetail = ({ match }: any) => {
   const [apply, setApply] = useState<boolean>(false);
+  const history = useHistory();
 
   const { isLoading, error, data } = useQuery("postDetail", () =>
     axios(`https://qovh.herokuapp.com/post/${match.params.id}`)
@@ -18,15 +21,23 @@ const GroupDetail = ({ match }: any) => {
 
   const postDelete = useMutation(() =>
     axios
-      .delete(`https://qovh.herokuapp.com/post/${match.params.id}`)
+      .delete(`https://qovh.herokuapp.com/post/${match.params.id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then(() => {
-        console.log("삭제되었습니다.");
+        ToastSuccess("스터디 그룹이 삭제되었습니다.");
+
+        setTimeout(() => {
+          history.push("/");
+        }, 3000);
       })
   );
 
-  postDelete.mutate();
-
-  console.log(data?.data.post);
+  const deleteClickHandler = (id: any) => {
+    postDelete.mutate(id);
+  };
 
   return (
     <>
@@ -39,7 +50,7 @@ const GroupDetail = ({ match }: any) => {
           <S.GroupDetailContent>
             <GroupDetailHeader
               groupDetail={data?.data.post}
-              postDelete={postDelete}
+              postDelete={deleteClickHandler}
             />
             <Content setApply={setApply} groupDetail={data?.data.post} />
             <BottomComment />
