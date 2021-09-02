@@ -15,7 +15,7 @@ const GroupDetail = ({ match }: any) => {
   const [apply, setApply] = useState<boolean>(false);
   const history = useHistory();
 
-  const { isLoading, error, data } = useQuery("postDetail", () =>
+  const { isLoading, error, data } = useQuery("postDetail", async () =>
     axios(`https://qovh.herokuapp.com/post/${match.params.id}`)
   );
 
@@ -41,7 +41,7 @@ const GroupDetail = ({ match }: any) => {
 
   return (
     <>
-      <ApplyForm apply={apply} setApply={setApply} />
+      <ApplyForm apply={apply} setApply={setApply} postId={match.params.id} />
       <S.MainWrapper>
         {error && <>데이터를 불러올 수 없습니다.</>}
         {isLoading ? (
@@ -53,8 +53,12 @@ const GroupDetail = ({ match }: any) => {
               postDelete={deleteClickHandler}
               history={history}
             />
-            <Content setApply={setApply} groupDetail={data?.data.post} />
-            <BottomComment />
+            <Content
+              setApply={setApply}
+              groupDetail={data?.data.post}
+              postId={match.params.id}
+            />
+            <BottomComment postId={match.params.id} />
           </S.GroupDetailContent>
         )}
       </S.MainWrapper>
