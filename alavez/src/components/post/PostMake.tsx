@@ -8,7 +8,7 @@ import { ToastError, ToastSuccess } from "../../hook/toastHook";
 import { categoryList } from "../../interfaces/group";
 import * as S from "./style";
 
-const PostMake = ({ match }: any) => {
+const PostMake = () => {
   const history = useHistory();
   const [fileUrl, setFileUrl] = useState<string>("");
   const [selected, setSelected] = useState<number>(1);
@@ -26,8 +26,6 @@ const PostMake = ({ match }: any) => {
         console.log(res);
       })
   );
-
-  console.dir(match);
 
   const [inputs, setInputs] = useState({
     title: "",
@@ -79,7 +77,7 @@ const PostMake = ({ match }: any) => {
 
       setTimeout(() => {
         history.push("/");
-      }, 3000);
+      }, 2000);
 
       setInputs({
         title: "",
@@ -96,7 +94,6 @@ const PostMake = ({ match }: any) => {
     const imageFile = e.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
 
-    console.log(imageFile);
     if (imageFile === null) {
       setFileUrl(
         "https://www.google.com/search?q=%EA%B3%A0%EC%96%91%EC%9D%B4+%EC%82%AC%EC%A7%84&sxsrf=ALeKk03Wk0cnVAi3nMILUKuQ8AhOs58XtA:1629809815944&tbm=isch&source=iu&ictx=1&fir=NpMi5nVF1QK1MM%252Ck3mACyoxPXAFMM%252C_&vet=1&usg=AI4_-kSdvsWpvHjLo_Y09K2M3vRv47DoMA&sa=X&ved=2ahUKEwipqYXZ2snyAhWNOZQKHcZWClwQ9QF6BAgZEAE#imgrc=NpMi5nVF1QK1MM"
@@ -160,12 +157,12 @@ const PostMake = ({ match }: any) => {
                 <option value="" selected disabled hidden>
                   선택해주세요.
                 </option>
-                <option value="000">제한 없음</option>
-                <option value="100">1명 이하</option>
-                <option value="200">2 ~ 3명</option>
-                <option value="300">4 ~ 5명</option>
-                <option value="400">6 ~ 7명</option>
-                <option value="500">8명 이상</option>
+                <option value="제한없음">제한 없음</option>
+                <option value="1명">1명 이하</option>
+                <option value="1~3명">2 ~ 3명</option>
+                <option value="4~5명">4 ~ 5명</option>
+                <option value="6~7명">6 ~ 7명</option>
+                <option value="8명 이상">8명 이상</option>
               </select>
             </div>
             <div className="content-side">
