@@ -3,25 +3,36 @@ import { useState } from "react";
 import * as S from "./style/ApplyStyle";
 import { close } from "../../../assets";
 import { ToastError, ToastSuccess } from "../../../hook/toastHook";
+import { useMutation } from "react-query";
+import axios from "axios";
 
 interface ApplyFormProps {
   apply: boolean;
   setApply: any;
+  postId: number;
 }
 
-const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
+const ApplyForm = ({ apply, setApply, postId }: ApplyFormProps) => {
   const [lineColor, setLineColor] = useState<boolean>(false);
   const [phoneLineColor, setPhoneLineColor] = useState<boolean>(false);
-  const [reasonLineColor, setReasonLineColor] = useState<boolean>(false);
+  const [sentenceLineColor, setsentenceLineColor] = useState<boolean>(false);
   const [buttonColor, setButtonColor] = useState<boolean>(false);
+
+  const mutation = useMutation((inputs) =>
+    axios.post(`https://qovh.herokuapp.com/application/${postId}`, inputs, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+  );
 
   const [inputs, setInputs] = useState({
     nick: "",
-    phone: "",
-    reason: "",
+    phone_number: "",
+    sentence: "",
   });
 
-  const { nick, reason, phone } = inputs;
+  const { nick, sentence, phone_number } = inputs;
 
   const onChange = (e: any) => {
     const { value, name } = e.target;
@@ -32,23 +43,25 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
     });
   };
 
-  const SubmitHandler = (e: any) => {
+  const handleSubmit = (e: any, data: any) => {
     e.preventDefault();
 
-    if (nick === "" || phone === "" || reason === "") {
+    mutation.mutate(data);
+
+    if (nick === "" || phone_number === "" || sentence === "") {
       ToastError("항목을 모두 채워주세요");
     } else {
       ToastSuccess("스터디 신청이 되었습니다.");
       setApply(false);
       setLineColor(false);
       setPhoneLineColor(false);
-      setReasonLineColor(false);
+      setsentenceLineColor(false);
       setButtonColor(false);
 
       setInputs({
         nick: "",
-        phone: "",
-        reason: "",
+        phone_number: "",
+        sentence: "",
       });
     }
 
@@ -56,7 +69,7 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
   };
 
   useEffect(() => {
-    if (nick.length > 0 && reason.length > 0 && phone !== "") {
+    if (nick.length > 0 && sentence.length > 0 && phone_number !== "") {
       setButtonColor(true);
     } else {
       setButtonColor(false);
@@ -68,22 +81,22 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
       setLineColor(false);
     }
 
-    if (phone !== "") {
+    if (phone_number !== "") {
       setPhoneLineColor(true);
     } else {
       setPhoneLineColor(false);
     }
 
-    if (reason.length > 0) {
-      setReasonLineColor(true);
+    if (sentence.length > 0) {
+      setsentenceLineColor(true);
     } else {
-      setReasonLineColor(false);
+      setsentenceLineColor(false);
     }
-  }, [nick, reason, phone]);
+  }, [nick, sentence, phone_number]);
 
   return (
     <S.ApplyWrapper style={{ display: apply ? "flex" : "none" }}>
-      <S.ApplyForm onSubmit={SubmitHandler}>
+      <S.ApplyForm onSubmit={(e) => handleSubmit(e, inputs)}>
         <img src={close} alt="닫기 아이콘" onClick={() => setApply(false)} />
         <h2>음음음음음 제목임</h2>
         <S.InputWrapper>
@@ -106,10 +119,10 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
             <span>전화번호</span>
             <input
               placeholder="'-'를 제외하고 입력해주세요"
-              type="phone"
+              type="phone_number"
               onChange={onChange}
-              value={phone}
-              name="phone"
+              value={phone_number}
+              name="phone_number"
               style={{
                 borderBottom: phoneLineColor
                   ? "2px solid #6f2dff"
@@ -123,10 +136,10 @@ const ApplyForm = ({ apply, setApply }: ApplyFormProps) => {
               placeholder="자신을 표현해보세요!"
               type="text"
               onChange={onChange}
-              value={reason}
-              name="reason"
+              value={sentence}
+              name="sentence"
               style={{
-                borderBottom: reasonLineColor
+                borderBottom: sentenceLineColor
                   ? "2px solid #6f2dff"
                   : "2px solid pink",
               }}
