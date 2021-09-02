@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { close } from "../../assets";
-import { rejectApply } from "../../store/action";
 import { ToastContainer, toast } from "react-toastify";
 import * as S from "./style";
 import { ToastSuccess } from "../../hook/toastHook";

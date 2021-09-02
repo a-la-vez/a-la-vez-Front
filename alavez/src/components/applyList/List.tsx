@@ -1,16 +1,11 @@
 import * as S from "./style";
 import { ListProps, studyMemberListDummy } from "../../interfaces/applyList";
-import { useSelector } from "react-redux";
 import PassModal from "./PassModal";
-import { useState } from "react";
-import { RootState } from "../../store/reducers";
 
 const List = ({ count, setOpenModal, setUserId }: ListProps) => {
-  const test = useSelector((state: RootState) => state.apply);
-
   return (
     <>
-      <S.ApplyList>
+      {/*  <S.ApplyList>
         {count === 1 ? (
           <>
             {test.map((i) => (
@@ -43,7 +38,7 @@ const List = ({ count, setOpenModal, setUserId }: ListProps) => {
             ))}
           </>
         )}
-      </S.ApplyList>
+      </S.ApplyList> */}
     </>
   );
 };
