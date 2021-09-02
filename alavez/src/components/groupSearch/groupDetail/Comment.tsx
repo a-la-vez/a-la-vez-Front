@@ -1,59 +1,68 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import * as S from "./style/style";
-import { useDispatch, useSelector } from "react-redux";
-import { Delete } from "../../../assets";
 import { CommentType } from "../../../interfaces/group";
-import { deleteComment } from "../../../store/action";
-import { RootState } from "../../../store/reducers";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastSuccess } from "../../../hook/toastHook";
+import CommentItem from "./CommentItem";
+import { useMutation, useQuery } from "react-query";
+import axios from "axios";
 
-const Comment = (comments: any, index: number) => {
-  const dispatch = useDispatch();
+interface Props {
+  postId: number;
+}
 
-  return (
-    <S.Comment key={index}>
-      <div className="user-info">
-        <img src={comments.comments.ImagePath} alt="사용자 프로필 사진" />
-        <span>{comments.comments.UserName}</span>
-        <span>{comments.comments.CreatedAt}</span>
-        <img
-          src={Delete}
-          alt="댓글삭제아이콘"
-          onClick={() => {
-            dispatch(deleteComment(comments.comments.id));
-            ToastSuccess("댓글이 삭제되었습니다.");
-          }}
-        ></img>
-      </div>
-      <div className="content">{comments.comments.Content}</div>
-    </S.Comment>
+const BottomComment = ({ postId }: Props) => {
+  const [comments, setComments] = useState<any>([]);
+  const [content, setContent] = useState<any>({ content: "" });
+
+  const { data } = useQuery("comments", async () =>
+    axios(`https://qovh.herokuapp.com/comment/findAll/${postId}`)
   );
-};
 
-const BottomComment = () => {
-  const comments = useSelector((state: RootState) => state.comments);
-  
+  const commentWrite = useMutation(async (content) =>
+    axios.post(`https://qovh.herokuapp.com/comment/write/${postId}`, content, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+  );
+
+  const commentKeyPress = (e: any, content: any) => {
+    if (e.key === "Enter") {
+      commentWrite.mutate(content);
+      setContent({ content: content });
+      setComments(comments.concat(content));
+    }
+  };
+
+  useEffect(() => {
+    setComments(data?.data?.comments);
+  }, [data]);
+
   return (
     <S.BottomContent>
       <ToastContainer />
       <S.CommentWrapper>
         <S.CommentHeader>
           <span>댓글</span>
-          <span>{comments.length}개</span>
+          <span>{comments?.length}개</span>
         </S.CommentHeader>
         <S.CommentInput>
-          <input type="text" placeholder="댓글을 작성해주세요" />
+          <input
+            type="text"
+            placeholder="댓글을 작성해주세요"
+            onChange={(e) => setContent({ content: e.target.value })}
+            onKeyPress={(e) => commentKeyPress(e, content)}
+          />
         </S.CommentInput>
-        {comments.length === 0 ? (
+        {comments?.length === 0 ? (
           <div className="comment-none">댓글이 없습니다.</div>
         ) : (
           <>
             {comments?.map((comment: CommentType, index: number): any => (
-              <Comment key={index} comments={comment} />
+              <CommentItem key={index} comments={comment} />
             ))}
-            {comments.length >= 5 ? (
+            {comments?.length >= 5 ? (
               <button className="comment-more">더보기</button>
             ) : null}
           </>
