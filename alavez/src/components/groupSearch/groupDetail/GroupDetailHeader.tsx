@@ -14,7 +14,7 @@ const GroupDetailHeader = ({
       </div>
       <div className="date">
         <div
-          onClick={() => history.push(`/post/${groupDetail.id}`)}
+          onClick={() => history.push(`/post/modify?id=${groupDetail.id}`)}
           className="modify-group"
         >
           스터디 수정
