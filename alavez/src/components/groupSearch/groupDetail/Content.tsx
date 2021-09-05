@@ -1,9 +1,11 @@
+import axios from "axios";
 import { useState } from "react";
+import { useQuery } from "react-query";
 import { heart, heartCheck } from "../../../assets";
 import { groupDetailProps } from "../../../interfaces/group";
 import * as S from "./style/style";
 
-const Content = ({ setApply, groupDetail }: groupDetailProps) => {
+const Content = ({ setApply, groupDetail, postId }: groupDetailProps) => {
   const [heartClick, setHeartClick] = useState(heart);
   const [count, setCount] = useState<boolean>(false);
 
@@ -15,6 +17,10 @@ const Content = ({ setApply, groupDetail }: groupDetailProps) => {
     }
     setCount(!count);
   };
+
+  /*  const { isSuccess } = useQuery("heartClick", () =>
+    axios(`https://qovh.herokuapp.com/heart/${postId}`)
+  ); */
 
   return (
     <S.TopContent>
@@ -32,15 +38,11 @@ const Content = ({ setApply, groupDetail }: groupDetailProps) => {
             <img
               src={heartClick}
               alt="즐겨찾기 아이콘"
-              onClick={heartClickhandler}
+              onClick={() => {
+                heartClickhandler();
+              }}
             />
-            {groupDetail.Hire ? (
-              <button onClick={() => setApply(true)}>신청하기</button>
-            ) : (
-              <button onClick={() => alert("모집기간이 지났습니다.")}>
-                신청불가
-              </button>
-            )}
+            <button onClick={() => setApply(true)}>신청하기</button>
           </div>
         </div>
       </div>
