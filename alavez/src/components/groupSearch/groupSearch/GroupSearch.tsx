@@ -82,8 +82,8 @@ const GroupSearch = () => {
                   </div>
                   <S.GroupDescribe>
                     <p>{post.title}</p>
-                    <span>{post.describe}</span>
-                    <span>{post.period}</span>
+                    <span>모집 인원 {post.personnel}명</span>
+                    <span>모집 기간 {post.period}</span>
                   </S.GroupDescribe>
                 </S.GroupItem>
               ))}
