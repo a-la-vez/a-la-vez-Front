@@ -1,5 +1,3 @@
-import { groupImg2 } from "../assets";
-
 export interface CategoryType {
   id: number;
   name: string;
@@ -23,10 +21,11 @@ export interface GroupDetailType extends ListDummyType {
 
 export interface CommentType {
   id: number;
-  ImagePath: string;
-  Content: string;
-  CreatedAt: string;
-  UserName: string;
+  imagePath?: string;
+  content: string;
+  createdAt: string;
+  userId: number;
+  writingId: number;
 }
 
 export interface CommentPropsState extends CommentType {
@@ -41,6 +40,7 @@ export interface groupDetailProps {
   location?: any;
   postDelete?: any;
   history?: any;
+  postId?: number;
 }
 
 export const categoryList: CategoryType[] = [
@@ -169,43 +169,5 @@ export const listDummy: ListDummyType[] = [
     Title: "대덕마이스터고등학교 공부할 사람!!!",
     describe: "인원 6명",
     Period: "2020202",
-  },
-];
-
-export const commentDummy: CommentType[] = [
-  {
-    id: 1,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    id: 2,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    id: 3,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    id: 4,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
-  },
-  {
-    id: 5,
-    ImagePath: groupImg2,
-    Content: "Sdfsdfsdf",
-    CreatedAt: "2020-20-20",
-    UserName: "은빈",
   },
 ];
