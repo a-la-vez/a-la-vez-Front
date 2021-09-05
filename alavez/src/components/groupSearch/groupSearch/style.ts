@@ -132,6 +132,10 @@ export const GroupDescribe = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
+  & p{
+    height: 80px;
+  }
+  
   & a {
     text-decoration: none;
     color: black;
