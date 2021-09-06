@@ -1,7 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { close } from "../../assets";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import * as S from "./style";
 import { ToastSuccess } from "../../hook/toastHook";
 
@@ -12,8 +11,7 @@ interface PassModalProps {
 }
 
 const PassModal = ({ openModal, setOpenModal, userId }: PassModalProps) => {
-  const dispatch = useDispatch();
-
+  
   return (
     <S.PassModalWrapper style={{ display: openModal ? "flex" : "none" }}>
       <ToastContainer />
