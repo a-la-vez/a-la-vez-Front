@@ -16,6 +16,8 @@ const GroupSearch = () => {
     axios("https://qovh.herokuapp.com/post")
   );
 
+  console.log(data?.data);
+
   const inputClick = () => {
     if (test.current?.focus) {
       test.current.focus();
@@ -75,7 +77,7 @@ const GroupSearch = () => {
             <>잠시만 기달려주세요!!</>
           ) : (
             <>
-              {data?.data.posts.map((post: any) => (
+              {data?.data?.items.map((post: any) => (
                 <S.GroupItem href={`/group-detail/${post.id}`} key={post.id}>
                   <div className="group-img">
                     <img src={groupImg2} alt="그룹 베너 사진"></img>
