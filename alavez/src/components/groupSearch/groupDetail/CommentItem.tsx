@@ -1,5 +1,4 @@
 import { Delete } from "../../../assets";
-import { CommentType } from "../../../interfaces/group";
 import * as S from "./style/style";
 
 const CommentItem = (comments: any, index: number) => {
