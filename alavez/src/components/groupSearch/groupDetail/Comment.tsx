@@ -60,7 +60,11 @@ const BottomComment = ({ postId }: Props) => {
         ) : (
           <>
             {comments?.map((comment: CommentType, index: number): any => (
-              <CommentItem key={index} comments={comment} />
+              <CommentItem
+                key={index}
+                comments={comment}
+                setComments={setComments}
+              />
             ))}
             {comments?.length >= 5 ? (
               <button className="comment-more">더보기</button>
