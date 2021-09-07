@@ -15,6 +15,8 @@ const CommentItem = (comments: any, index: number, setComments: any) => {
     setComments(
       comments.comments.filter((id: number) => comments.comments.id !== id)
     );
+
+    
     console.log("댓글 삭제");
   };
 
